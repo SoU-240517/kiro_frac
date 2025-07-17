@@ -59,7 +59,9 @@ class FractalGenerator(ABC):
             True if parameters are valid, False otherwise
         """
         # Basic validation
-        if not parameters.validate():
+        try:
+            parameters.validate()
+        except Exception:
             return False
         
         # Check custom parameters against parameter definitions

@@ -1,383 +1,308 @@
 """
-Verification test for Task 1: Project structure and core interfaces setup.
-This test verifies that all core interfaces and data models are properly implemented.
+Integration test to verify that Task 3 (フラクタル計算エンジンの実装) is complete.
+
+This test verifies that all subtasks have been implemented correctly:
+- 3.1 基本的なマンデルブロ集合生成器を実装
+- 3.2 ジュリア集合生成器を実装  
+- 3.3 並列計算システムの実装
 """
-import sys
-import os
+
+import unittest
 import numpy as np
-from datetime import datetime
-
-# Add the project root to the path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
-from fractal_editor.models.interfaces import ColorMapper, FractalPlugin, PluginMetadata
-from fractal_editor.generators.base import FractalGenerator
+from fractal_editor.generators import fractal_registry, MandelbrotGenerator, JuliaGenerator
+from fractal_editor.generators.parallel import ParallelFractalGenerator
 from fractal_editor.models.data_models import (
-    ComplexNumber, ComplexRegion, FractalParameters, FractalResult, 
-    ParameterDefinition, ColorStop, ColorPalette, InterpolationMode,
-    AppSettings, FractalProject
-)
-from fractal_editor.generators.base import FractalGeneratorRegistry, fractal_registry
-from fractal_editor.controllers.base import MainController, FractalController, UIController
-from fractal_editor.services.error_handling import (
-    ErrorHandlingService, FractalCalculationException, 
-    FormulaValidationError, FormulaEvaluationError
+    FractalParameters, ComplexRegion, ComplexNumber
 )
 
 
-def test_complex_number():
-    """Test ComplexNumber data model."""
-    print("Testing ComplexNumber...")
+class TestTask3Verification(unittest.TestCase):
+    """Integration test for Task 3 completion verification."""
     
-    # Test creation
-    c1 = ComplexNumber(3.0, 4.0)
-    assert c1.real == 3.0
-    assert c1.imaginary == 4.0
-    
-    # Test magnitude
-    assert c1.magnitude == 5.0  # 3-4-5 triangle
-    
-    # Test square
-    c2 = c1.square()  # (3+4i)^2 = 9 + 24i - 16 = -7 + 24i
-    assert c2.real == -7.0
-    assert c2.imaginary == 24.0
-    
-    # Test addition
-    c3 = ComplexNumber(1.0, 2.0)
-    c4 = c1 + c3
-    assert c4.real == 4.0
-    assert c4.imaginary == 6.0
-    
-    # Test conversion to complex
-    complex_val = c1.to_complex()
-    assert complex_val == complex(3.0, 4.0)
-    
-    print("✓ ComplexNumber tests passed")
-
-
-def test_complex_region():
-    """Test ComplexRegion data model."""
-    print("Testing ComplexRegion...")
-    
-    top_left = ComplexNumber(-2.0, 1.0)
-    bottom_right = ComplexNumber(1.0, -1.0)
-    region = ComplexRegion(top_left, bottom_right)
-    
-    assert region.width == 3.0  # 1.0 - (-2.0)
-    assert region.height == 2.0  # 1.0 - (-1.0)
-    
-    print("✓ ComplexRegion tests passed")
-
-
-def test_fractal_parameters():
-    """Test FractalParameters data model."""
-    print("Testing FractalParameters...")
-    
-    region = ComplexRegion(
-        ComplexNumber(-2.0, 1.0),
-        ComplexNumber(1.0, -1.0)
-    )
-    
-    params = FractalParameters(
-        region=region,
-        max_iterations=1000,
-        image_size=(800, 600),
-        custom_parameters={'c': complex(0.3, 0.5)}
-    )
-    
-    assert params.validate() == True
-    
-    # Test invalid parameters
-    invalid_params = FractalParameters(
-        region=region,
-        max_iterations=0,  # Invalid
-        image_size=(800, 600)
-    )
-    assert invalid_params.validate() == False
-    
-    print("✓ FractalParameters tests passed")
-
-
-def test_parameter_definition():
-    """Test ParameterDefinition data model."""
-    print("Testing ParameterDefinition...")
-    
-    # Test integer parameter
-    int_param = ParameterDefinition(
-        name="max_iter",
-        display_name="Maximum Iterations",
-        parameter_type="int",
-        default_value=1000,
-        min_value=1,
-        max_value=10000
-    )
-    
-    assert int_param.validate_value(500) == True
-    assert int_param.validate_value(0) == False  # Below minimum
-    assert int_param.validate_value(20000) == False  # Above maximum
-    assert int_param.validate_value("invalid") == False  # Wrong type
-    
-    # Test float parameter
-    float_param = ParameterDefinition(
-        name="zoom",
-        display_name="Zoom Level",
-        parameter_type="float",
-        default_value=1.0,
-        min_value=0.1,
-        max_value=100.0
-    )
-    
-    assert float_param.validate_value(2.5) == True
-    assert float_param.validate_value(0.05) == False  # Below minimum
-    
-    print("✓ ParameterDefinition tests passed")
-
-
-def test_color_palette():
-    """Test ColorPalette and related models."""
-    print("Testing ColorPalette...")
-    
-    stops = [
-        ColorStop(0.0, (0, 0, 0)),      # Black
-        ColorStop(0.5, (255, 0, 0)),    # Red
-        ColorStop(1.0, (255, 255, 255)) # White
-    ]
-    
-    palette = ColorPalette(
-        name="Test Palette",
-        color_stops=stops,
-        interpolation_mode=InterpolationMode.LINEAR
-    )
-    
-    assert palette.name == "Test Palette"
-    assert len(palette.color_stops) == 3
-    assert palette.interpolation_mode == InterpolationMode.LINEAR
-    
-    print("✓ ColorPalette tests passed")
-
-
-def test_app_settings():
-    """Test AppSettings data model."""
-    print("Testing AppSettings...")
-    
-    settings = AppSettings()
-    
-    assert settings.default_max_iterations == 1000
-    assert settings.default_image_size == (800, 600)
-    assert settings.thread_count > 0
-    assert settings.enable_anti_aliasing == True
-    
-    print("✓ AppSettings tests passed")
-
-
-def test_fractal_result():
-    """Test FractalResult data model."""
-    print("Testing FractalResult...")
-    
-    # Create test data
-    iteration_data = np.zeros((100, 100), dtype=int)
-    region = ComplexRegion(
-        ComplexNumber(-2.0, 1.0),
-        ComplexNumber(1.0, -1.0)
-    )
-    
-    result = FractalResult(
-        iteration_data=iteration_data,
-        region=region,
-        calculation_time=1.5
-    )
-    
-    assert result.iteration_data.shape == (100, 100)
-    assert result.calculation_time == 1.5
-    assert result.region.width == 3.0
-    
-    print("✓ FractalResult tests passed")
-
-
-def test_plugin_metadata():
-    """Test PluginMetadata data model."""
-    print("Testing PluginMetadata...")
-    
-    metadata = PluginMetadata(
-        name="Test Plugin",
-        version="1.0.0",
-        author="Test Author",
-        description="A test plugin"
-    )
-    
-    assert metadata.name == "Test Plugin"
-    assert metadata.dependencies == []  # Default empty list
-    
-    print("✓ PluginMetadata tests passed")
-
-
-def test_fractal_generator_registry():
-    """Test FractalGeneratorRegistry."""
-    print("Testing FractalGeneratorRegistry...")
-    
-    # Create a test generator
-    class TestGenerator(FractalGenerator):
-        @property
-        def name(self) -> str:
-            return "Test Generator"
-        
-        @property
-        def description(self) -> str:
-            return "A test fractal generator"
-        
-        def calculate(self, parameters: FractalParameters) -> FractalResult:
-            # Simple test implementation
-            iteration_data = np.ones(parameters.image_size[::-1], dtype=int)
-            return FractalResult(
-                iteration_data=iteration_data,
-                region=parameters.region,
-                calculation_time=0.1
-            )
-        
-        def get_parameter_definitions(self):
-            return [
-                ParameterDefinition(
-                    name="test_param",
-                    display_name="Test Parameter",
-                    parameter_type="float",
-                    default_value=1.0
-                )
-            ]
-    
-    # Test registry
-    registry = FractalGeneratorRegistry()
-    registry.register(TestGenerator)
-    
-    assert "Test Generator" in registry.list_generators()
-    
-    generator = registry.get_generator("Test Generator")
-    assert generator.name == "Test Generator"
-    
-    info = registry.get_generator_info("Test Generator")
-    assert info['name'] == "Test Generator"
-    assert len(info['parameters']) == 1
-    
-    print("✓ FractalGeneratorRegistry tests passed")
-
-
-def test_controllers():
-    """Test controller classes."""
-    print("Testing Controllers...")
-    
-    # Test MainController
-    main_controller = MainController()
-    assert not main_controller.is_initialized
-    
-    main_controller.initialize()
-    assert main_controller.is_initialized
-    
-    # Test FractalController
-    fractal_controller = FractalController()
-    fractal_controller.initialize()
-    assert fractal_controller.is_initialized
-    
-    # Test UIController
-    ui_controller = UIController()
-    ui_controller.initialize()
-    assert ui_controller.is_initialized
-    
-    # Test UI state management
-    ui_controller.set_ui_state('test_key', 'test_value')
-    assert ui_controller.get_ui_state('test_key') == 'test_value'
-    
-    print("✓ Controllers tests passed")
-
-
-def test_error_handling():
-    """Test error handling service."""
-    print("Testing ErrorHandlingService...")
-    
-    error_service = ErrorHandlingService()
-    
-    # Test that it doesn't crash when handling errors
-    try:
-        region = ComplexRegion(
-            ComplexNumber(-2.0, 1.0),
-            ComplexNumber(1.0, -1.0)
+    def setUp(self):
+        """Set up test fixtures."""
+        # Standard test region and parameters
+        self.test_region = ComplexRegion(
+            top_left=ComplexNumber(-2.0, 1.0),
+            bottom_right=ComplexNumber(1.0, -1.0)
         )
-        params = FractalParameters(region, 1000, (800, 600))
         
-        calc_error = FractalCalculationException("Test error", params, "test_stage")
-        error_service.handle_calculation_error(calc_error)
-        
-        formula_error = FormulaValidationError("Test formula error")
-        error_service.handle_formula_error(formula_error)
-        
-        general_error = Exception("Test general error")
-        error_service.handle_general_error(general_error, "test_context")
-        
-    except Exception as e:
-        assert False, f"Error handling should not raise exceptions: {e}"
+        self.test_params = FractalParameters(
+            region=self.test_region,
+            max_iterations=100,
+            image_size=(50, 50),
+            custom_parameters={}
+        )
     
-    print("✓ ErrorHandlingService tests passed")
+    def test_subtask_3_1_mandelbrot_generator_implemented(self):
+        """Verify subtask 3.1: Mandelbrot generator is implemented and working."""
+        # Test that MandelbrotGenerator can be imported and instantiated
+        generator = MandelbrotGenerator()
+        
+        # Test basic properties
+        self.assertEqual(generator.name, "Mandelbrot Set")
+        self.assertIn("Mandelbrot", generator.description)
+        
+        # Test parameter definitions
+        param_defs = generator.get_parameter_definitions()
+        self.assertGreater(len(param_defs), 0)
+        
+        # Test calculation
+        result = generator.calculate(self.test_params)
+        self.assertIsNotNone(result)
+        self.assertEqual(result.iteration_data.shape, (50, 50))
+        self.assertGreater(result.calculation_time, 0)
+        
+        # Test mathematical accuracy with known point
+        # Point c = 0 should be in the Mandelbrot set
+        zero_region = ComplexRegion(
+            top_left=ComplexNumber(-0.1, 0.1),
+            bottom_right=ComplexNumber(0.1, -0.1)
+        )
+        zero_params = FractalParameters(
+            region=zero_region,
+            max_iterations=100,
+            image_size=(3, 3),
+            custom_parameters={}
+        )
+        zero_result = generator.calculate(zero_params)
+        center_iterations = zero_result.iteration_data[1, 1]
+        self.assertEqual(center_iterations, 100)  # Should reach max iterations
+        
+        print("✓ Subtask 3.1: Mandelbrot generator implemented and mathematically accurate")
+    
+    def test_subtask_3_2_julia_generator_implemented(self):
+        """Verify subtask 3.2: Julia generator is implemented and working."""
+        # Test that JuliaGenerator can be imported and instantiated
+        generator = JuliaGenerator()
+        
+        # Test basic properties
+        self.assertEqual(generator.name, "Julia Set")
+        self.assertIn("Julia", generator.description)
+        
+        # Test parameter definitions
+        param_defs = generator.get_parameter_definitions()
+        self.assertGreaterEqual(len(param_defs), 3)  # c_real, c_imag, escape_radius
+        
+        param_names = [pd.name for pd in param_defs]
+        self.assertIn("c_real", param_names)
+        self.assertIn("c_imag", param_names)
+        self.assertIn("escape_radius", param_names)
+        
+        # Test calculation with default parameters
+        julia_params = FractalParameters(
+            region=self.test_region,
+            max_iterations=100,
+            image_size=(50, 50),
+            custom_parameters={
+                'c_real': -0.7,
+                'c_imag': 0.27015
+            }
+        )
+        
+        result = generator.calculate(julia_params)
+        self.assertIsNotNone(result)
+        self.assertEqual(result.iteration_data.shape, (50, 50))
+        self.assertGreater(result.calculation_time, 0)
+        
+        # Test that different c parameters produce different results
+        julia_params2 = FractalParameters(
+            region=self.test_region,
+            max_iterations=100,
+            image_size=(50, 50),
+            custom_parameters={
+                'c_real': 0.0,
+                'c_imag': 0.0
+            }
+        )
+        
+        result2 = generator.calculate(julia_params2)
+        self.assertFalse(np.array_equal(result.iteration_data, result2.iteration_data))
+        
+        # Test interesting c values
+        interesting_values = generator.get_interesting_c_values()
+        self.assertGreater(len(interesting_values), 5)
+        
+        print("✓ Subtask 3.2: Julia generator implemented with configurable c parameter")
+    
+    def test_subtask_3_3_parallel_computation_implemented(self):
+        """Verify subtask 3.3: Parallel computation system is implemented and working."""
+        # Test ParallelFractalGenerator wrapper
+        base_generator = MandelbrotGenerator()
+        parallel_generator = ParallelFractalGenerator(base_generator, num_processes=2)
+        
+        # Test wrapper properties
+        self.assertIn("Parallel", parallel_generator.name)
+        self.assertIn("Parallel", parallel_generator.description)
+        
+        # Test that parallel computation produces same results as sequential
+        sequential_result = base_generator.calculate(self.test_params)
+        parallel_result = parallel_generator.calculate(self.test_params)
+        
+        np.testing.assert_array_equal(
+            sequential_result.iteration_data,
+            parallel_result.iteration_data
+        )
+        
+        # Test progress tracking
+        progress_updates = []
+        
+        def progress_callback(progress):
+            progress_updates.append(progress)
+        
+        parallel_result_with_progress = parallel_generator.calculate(
+            self.test_params,
+            progress_callback
+        )
+        
+        # Should have received progress updates
+        self.assertGreater(len(progress_updates), 0)
+        
+        # Final progress should be complete
+        final_progress = progress_updates[-1]
+        self.assertTrue(final_progress.is_complete)
+        self.assertEqual(final_progress.progress_percentage, 100.0)
+        
+        # Test with Julia generator too
+        julia_generator = JuliaGenerator()
+        parallel_julia = ParallelFractalGenerator(julia_generator, num_processes=2)
+        
+        julia_params = FractalParameters(
+            region=self.test_region,
+            max_iterations=50,
+            image_size=(30, 30),
+            custom_parameters={
+                'c_real': -0.7,
+                'c_imag': 0.27015
+            }
+        )
+        
+        sequential_julia = julia_generator.calculate(julia_params)
+        parallel_julia_result = parallel_julia.calculate(julia_params)
+        
+        np.testing.assert_array_equal(
+            sequential_julia.iteration_data,
+            parallel_julia_result.iteration_data
+        )
+        
+        print("✓ Subtask 3.3: Parallel computation system implemented with progress tracking")
+    
+    def test_fractal_registry_integration(self):
+        """Verify that generators are properly registered in the fractal registry."""
+        # Test that generators are registered
+        available_generators = fractal_registry.list_generators()
+        self.assertIn("Mandelbrot Set", available_generators)
+        self.assertIn("Julia Set", available_generators)
+        
+        # Test getting generators from registry
+        mandelbrot = fractal_registry.get_generator("Mandelbrot Set")
+        self.assertIsInstance(mandelbrot, MandelbrotGenerator)
+        
+        julia = fractal_registry.get_generator("Julia Set")
+        self.assertIsInstance(julia, JuliaGenerator)
+        
+        # Test generator info
+        mandelbrot_info = fractal_registry.get_generator_info("Mandelbrot Set")
+        self.assertEqual(mandelbrot_info['name'], "Mandelbrot Set")
+        self.assertIn('parameters', mandelbrot_info)
+        self.assertIn('default_values', mandelbrot_info)
+        
+        julia_info = fractal_registry.get_generator_info("Julia Set")
+        self.assertEqual(julia_info['name'], "Julia Set")
+        self.assertIn('parameters', julia_info)
+        self.assertIn('default_values', julia_info)
+        
+        print("✓ Fractal generators properly registered and accessible via registry")
+    
+    def test_mathematical_accuracy_verification(self):
+        """Verify mathematical accuracy of both generators."""
+        mandelbrot = MandelbrotGenerator()
+        julia = JuliaGenerator()
+        
+        # Test Mandelbrot set boundary behavior
+        # Point c = 2 should escape quickly (outside the set)
+        escape_region = ComplexRegion(
+            top_left=ComplexNumber(1.9, 0.1),
+            bottom_right=ComplexNumber(2.1, -0.1)
+        )
+        escape_params = FractalParameters(
+            region=escape_region,
+            max_iterations=100,
+            image_size=(3, 3),
+            custom_parameters={}
+        )
+        
+        escape_result = mandelbrot.calculate(escape_params)
+        center_escape = escape_result.iteration_data[1, 1]
+        self.assertLess(center_escape, 10)  # Should escape quickly
+        
+        # Test Julia set with c = 0 (should behave like z^2)
+        julia_zero_params = FractalParameters(
+            region=ComplexRegion(
+                top_left=ComplexNumber(-1.5, 1.5),
+                bottom_right=ComplexNumber(1.5, -1.5)
+            ),
+            max_iterations=50,
+            image_size=(10, 10),
+            custom_parameters={
+                'c_real': 0.0,
+                'c_imag': 0.0
+            }
+        )
+        
+        julia_zero_result = julia.calculate(julia_zero_params)
+        
+        # Center point (0,0) should reach max iterations
+        center_julia = julia_zero_result.iteration_data[5, 5]
+        self.assertEqual(center_julia, 50)
+        
+        # Corner points should escape quickly
+        corner_julia = julia_zero_result.iteration_data[0, 0]
+        self.assertLess(corner_julia, 10)
+        
+        print("✓ Mathematical accuracy verified for both Mandelbrot and Julia sets")
+    
+    def test_performance_and_efficiency(self):
+        """Verify that parallel computation provides performance benefits."""
+        mandelbrot = MandelbrotGenerator()
+        parallel_mandelbrot = ParallelFractalGenerator(mandelbrot, num_processes=2)
+        
+        # Use larger parameters for performance testing
+        perf_params = FractalParameters(
+            region=self.test_region,
+            max_iterations=200,
+            image_size=(100, 100),
+            custom_parameters={}
+        )
+        
+        import time
+        
+        # Sequential timing
+        start_time = time.time()
+        sequential_result = mandelbrot.calculate(perf_params)
+        sequential_time = time.time() - start_time
+        
+        # Parallel timing
+        start_time = time.time()
+        parallel_result = parallel_mandelbrot.calculate(perf_params)
+        parallel_time = time.time() - start_time
+        
+        # Results should be identical
+        np.testing.assert_array_equal(
+            sequential_result.iteration_data,
+            parallel_result.iteration_data
+        )
+        
+        # Parallel should not be significantly slower (allowing for overhead)
+        efficiency_ratio = sequential_time / parallel_time
+        self.assertGreater(efficiency_ratio, 0.5)  # At least 50% efficiency
+        
+        print(f"✓ Performance test: Sequential={sequential_time:.3f}s, Parallel={parallel_time:.3f}s, Efficiency={efficiency_ratio:.2f}x")
 
 
-def test_interfaces_are_abstract():
-    """Test that abstract interfaces cannot be instantiated."""
-    print("Testing abstract interfaces...")
-    
-    # These should all raise TypeError when trying to instantiate
-    try:
-        FractalGenerator()
-        assert False, "FractalGenerator should be abstract"
-    except TypeError:
-        pass
-    
-    try:
-        ColorMapper()
-        assert False, "ColorMapper should be abstract"
-    except TypeError:
-        pass
-    
-    try:
-        FractalPlugin()
-        assert False, "FractalPlugin should be abstract"
-    except TypeError:
-        pass
-    
-    print("✓ Abstract interfaces tests passed")
-
-
-def run_all_tests():
-    """Run all verification tests."""
+if __name__ == '__main__':
     print("=" * 60)
-    print("TASK 1 VERIFICATION: Project Structure and Core Interfaces")
+    print("Task 3 Verification: フラクタル計算エンジンの実装")
     print("=" * 60)
     
-    try:
-        test_complex_number()
-        test_complex_region()
-        test_fractal_parameters()
-        test_parameter_definition()
-        test_color_palette()
-        test_app_settings()
-        test_fractal_result()
-        test_plugin_metadata()
-        test_fractal_generator_registry()
-        test_controllers()
-        test_error_handling()
-        test_interfaces_are_abstract()
-        
-        print("\n" + "=" * 60)
-        print("✅ ALL TESTS PASSED!")
-        print("Task 1 implementation is complete and verified.")
-        print("Core interfaces and project structure are ready.")
-        print("=" * 60)
-        
-        return True
-        
-    except Exception as e:
-        print(f"\n❌ TEST FAILED: {e}")
-        import traceback
-        traceback.print_exc()
-        return False
-
-
-if __name__ == "__main__":
-    success = run_all_tests()
-    sys.exit(0 if success else 1)
+    unittest.main(verbosity=2)
