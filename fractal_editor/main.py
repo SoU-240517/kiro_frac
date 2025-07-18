@@ -3,12 +3,13 @@ Main entry point for the Fractal Editor application.
 """
 import sys
 import os
-from .controllers.base import MainController
-from .services.error_handling import ErrorHandlingService
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from fractal_editor.controllers.base import MainController
+from fractal_editor.services.error_handling import ErrorHandlingService
 
 # 追加: PyQt6のインポート
 from PyQt6.QtWidgets import QApplication
-from .ui.main_window import MainWindow
+from fractal_editor.ui.main_window import MainWindow
 
 def main():
     """Main application entry point."""
@@ -20,9 +21,9 @@ def main():
         main_controller = MainController()
         main_controller.initialize()
 
-        print("Fractal Editor initialized successfully!")
-        print("Core interfaces and project structure are ready.")
-        print("Ready for fractal generation implementation.")
+        print("フラクタル エディターが正常に初期化されました。")
+        print("コアインターフェースとプロジェクト構造が準備完了です。")
+        print("フラクタル生成の準備が整いました。")
 
         # --- ここからGUI起動 ---
         app = QApplication(sys.argv)
@@ -32,7 +33,7 @@ def main():
         # --- ここまでGUI起動 ---
 
     except Exception as e:
-        print(f"Failed to initialize Fractal Editor: {e}")
+        print(f"フラクタル エディターの初期化に失敗しました: {e}")
         return 1
 
 if __name__ == "__main__":

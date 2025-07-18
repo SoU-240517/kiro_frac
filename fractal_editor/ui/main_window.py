@@ -17,7 +17,7 @@ from .fractal_widget import FractalWidget
 from ..generators.mandelbrot import MandelbrotGenerator
 from ..generators.julia import JuliaGenerator
 from ..generators.custom_formula import CustomFormulaGenerator
-from ..models.data_models import FractalParameters, ComplexNumber
+from ..models.data_models import FractalParameters, ComplexNumber, ComplexRegion
 from ..services.background_calculator import (
     BackgroundCalculationService, get_background_calculation_service,
     get_responsive_ui_manager
@@ -225,7 +225,7 @@ class MainWindow(QMainWindow):
         status_bar = self.statusBar()
 
         # 左側：一般的なステータスメッセージ
-        self.status_label = QLabel("準備完了")
+        self.status_label = QLabel("フラクタルエディタへようこそ")
         status_bar.addWidget(self.status_label)
 
         # 中央：進行状況バー（通常は非表示）
@@ -238,8 +238,8 @@ class MainWindow(QMainWindow):
         self.calculation_time_label = QLabel("")
         status_bar.addPermanentWidget(self.calculation_time_label)
 
-        # 初期メッセージ
-        status_bar.showMessage("フラクタルエディタへようこそ", 3000)
+        # 3秒後に "準備完了" に変更
+        QTimer.singleShot(3000, lambda: self.status_label.setText("準備完了"))
 
     def _setup_dock_widgets(self) -> None:
         """ドッキング可能なパネルを設定"""
@@ -755,9 +755,22 @@ class MainWindow(QMainWindow):
         """指定された種別・パラメータでフラクタル画像を生成し表示"""
         # パラメータ取得
         params = self.parameter_panel.get_parameter_values() if hasattr(self, 'parameter_panel') else {}
-        # 画像サイズ・領域などのデフォルト値
-        width, height = 600, 400
-        region = type('Region', (), {'top_left': ComplexNumber(-2.0, 1.5), 'bottom_right': ComplexNumber(1.0, -1.5)})()
+        # 画像サイズをウィジェットから取得
+        size = self.fractal_widget.size()
+        width, height = size.width(), size.height()
+        if width == 0 or height == 0:
+            width, height = 600, 400  # 初期化時などサイズが0の場合のフォールバック
+
+        # ウィジェットのアスペクト比に合わせて描画領域を調整
+        aspect_ratio = width / height if height > 0 else 1.0
+        center_real = -0.5
+        height_complex = 3.0
+        width_complex = height_complex * aspect_ratio
+
+        region = ComplexRegion(
+            top_left=ComplexNumber(center_real - width_complex / 2, height_complex / 2),
+            bottom_right=ComplexNumber(center_real + width_complex / 2, -height_complex / 2)
+        )
         max_iterations = params.get('max_iterations', 100)
         # FractalParameters生成
         fp = FractalParameters(
