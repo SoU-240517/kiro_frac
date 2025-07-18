@@ -1,0 +1,14 @@
+# kiro
+.kiro/
+
+# pytest
+.pytest_cache/
+
+# 仮想環境
+.venv_kiro/
+
+# Python
+__pycache__/
+
+# VSCode
+.vscode/
