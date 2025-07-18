@@ -565,13 +565,79 @@ class FractalProject:
             raise ValueError("file_path must be a string")
     
     def save_to_file(self, file_path: str) -> None:
-        """プロジェクトをファイルに保存（実装は後で）"""
-        self.file_path = file_path
-        self.last_modified = datetime.now()
-        # TODO: JSON形式で保存する実装
+        """
+        プロジェクトをファイルに保存
+        
+        Args:
+            file_path: 保存先ファイルパス
+            
+        Note:
+            実際の保存処理はProjectManagerクラスで実装されています。
+            このメソッドはProjectManagerを使用して保存を行います。
+        """
+        # 循環インポートを避けるため、関数内でインポート
+        try:
+            from ..services.project_manager import ProjectManager
+        except ImportError:
+            # 相対インポートが失敗した場合の代替手段
+            import sys
+            import os
+            
+            # 現在のファイルのディレクトリを取得
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            parent_dir = os.path.dirname(current_dir)
+            services_dir = os.path.join(parent_dir, 'services')
+            
+            # services.project_managerモジュールを動的にインポート
+            if services_dir not in sys.path:
+                sys.path.insert(0, services_dir)
+            
+            try:
+                from project_manager import ProjectManager
+            finally:
+                if services_dir in sys.path:
+                    sys.path.remove(services_dir)
+        
+        manager = ProjectManager()
+        manager.save_project(self, file_path)
     
     @classmethod
     def load_from_file(cls, file_path: str) -> 'FractalProject':
-        """ファイルからプロジェクトを読み込み（実装は後で）"""
-        # TODO: JSON形式から読み込む実装
-        raise NotImplementedError("load_from_file is not implemented yet")
+        """
+        ファイルからプロジェクトを読み込み
+        
+        Args:
+            file_path: 読み込むファイルパス
+            
+        Returns:
+            読み込まれたプロジェクト
+            
+        Note:
+            実際の読み込み処理はProjectManagerクラスで実装されています。
+            このメソッドはProjectManagerを使用して読み込みを行います。
+        """
+        # 循環インポートを避けるため、関数内でインポート
+        try:
+            from ..services.project_manager import ProjectManager
+        except ImportError:
+            # 相対インポートが失敗した場合の代替手段
+            import sys
+            import os
+            
+            # 現在のファイルのディレクトリを取得
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            parent_dir = os.path.dirname(current_dir)
+            services_dir = os.path.join(parent_dir, 'services')
+            
+            # services.project_managerモジュールを動的にインポート
+            if services_dir not in sys.path:
+                sys.path.insert(0, services_dir)
+            
+            try:
+                from project_manager import ProjectManager
+            finally:
+                if services_dir in sys.path:
+                    sys.path.remove(services_dir)
+        
+        manager = ProjectManager()
+        return manager.load_project(file_path)
