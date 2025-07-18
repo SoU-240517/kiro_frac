@@ -556,3 +556,799 @@ Traceback (most recent call last):
   File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 194, in primary_func
     raise ValueError("プライマリエラー")
 ValueError: プライマリエラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 0"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 1"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 2"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 3"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 4"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "CRITICAL", "function": "handle_critical_error", "line": 231, "message": "クリティカルエラー - コンテキスト: システム初期化, エラー: クリティカルエラー"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 0"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 1"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 2"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 3"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 4"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 5"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 6"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 7"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 8"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 9"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 10"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 11"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 12"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 13"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 14"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 15"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 16"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 17"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 18"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 19"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 20"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 21"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 22"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 23"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 24"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 25"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 26"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 27"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 28"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 29"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 30"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 31"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 32"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 33"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 34"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 35"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 36"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 37"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 38"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 39"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 40"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 41"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 42"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 43"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 44"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 45"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 46"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 47"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 48"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 49"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 50"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 51"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 52"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 53"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 54"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 55"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 56"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 57"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 58"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 59"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 60"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 61"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 62"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 63"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 64"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 65"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 66"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 67"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 68"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 69"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 70"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 71"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 72"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 73"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 74"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 75"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 76"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 77"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 78"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 79"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 80"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 81"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 82"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 83"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 84"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 85"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 86"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 87"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 88"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 89"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 90"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 91"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 92"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 93"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 94"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 95"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 96"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 97"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 98"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 99"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 100"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 101"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 102"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 103"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 104"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト, エラー: エクスポートテスト用エラー"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "export_error_log", "line": 276, "message": "エラーログが C:\Users\TAKAGI\AppData\Local\Temp\tmpdztslg0h.txt にエクスポートされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaEvaluation): 数式の評価に失敗しました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): 無効な数式です"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_calculation_error", "line": 136, "message": "フラクタル計算エラー - ステージ: iteration, エラー: 計算でオーバーフローが発生"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テストコンテキスト, エラー: 一般的なエラー"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_image_export_error", "line": 172, "message": "画像出力エラー - ファイル: /path/to/image.png, 形式: PNG, エラー: 画像の保存に失敗"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_memory_error", "line": 195, "message": "メモリエラー - 要求サイズ: 104857600, エラー: メモリが不足しています"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: 一般エラー1"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: 一般エラー2"}
+NoneType: None
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): 数式エラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: , エラー: UIエラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_plugin_error", "line": 160, "message": "プラグインエラー - 名前: TestPlugin, パス: /path/to/plugin, エラー: プラグインの読み込みに失敗"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_project_file_error", "line": 184, "message": "プロジェクトファイルエラー - 操作: load, ファイル: /path/to/project.json, エラー: ファイルの読み込みに失敗"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: FractalWidget, エラー: ウィジェットの初期化に失敗"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): 無効な数式"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_calculation_error", "line": 136, "message": "フラクタル計算エラー - ステージ: test_stage, エラー: テスト用エラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_plugin_error", "line": 160, "message": "プラグインエラー - 名前: TestPlugin, パス: /path/to/plugin, エラー: プラグインエラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: TestWidget, エラー: UIエラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): デコレータテスト用エラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_plugin_error", "line": 160, "message": "プラグインエラー - 名前: TestPlugin, パス: /test/path, エラー: プラグインテスト用エラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: TestComponent, エラー: UIテスト用エラー"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (高品質), エラー: 高品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 255, in high_quality
+    raise ValueError("高品質エラー")
+ValueError: 高品質エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (中品質), エラー: 中品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 258, in medium_quality
+    raise ValueError("中品質エラー")
+ValueError: 中品質エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (低品質), エラー: 低品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 261, in low_quality
+    raise ValueError("低品質エラー")
+ValueError: 低品質エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト - 全ての品質レベルで失敗, エラー: 低品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 261, in low_quality
+    raise ValueError("低品質エラー")
+ValueError: 低品質エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (高品質), エラー: 高品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 239, in high_quality
+    raise ValueError("高品質エラー")
+ValueError: 高品質エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (中品質), エラー: 中品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 242, in medium_quality
+    raise ValueError("中品質エラー")
+ValueError: 中品質エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (高品質), エラー: 高品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 223, in high_quality
+    raise ValueError("高品質エラー")
+ValueError: 高品質エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (試行 1), エラー: 一時的なエラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 223, in retry_with_fallback
+    return primary_func()
+           ^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 179, in primary_func
+    raise ValueError("一時的なエラー")
+ValueError: 一時的なエラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (試行 1), エラー: プライマリエラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 223, in retry_with_fallback
+    return primary_func()
+           ^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 194, in primary_func
+    raise ValueError("プライマリエラー")
+ValueError: プライマリエラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (試行 2), エラー: プライマリエラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 223, in retry_with_fallback
+    return primary_func()
+           ^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 194, in primary_func
+    raise ValueError("プライマリエラー")
+ValueError: プライマリエラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト, エラー: エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 201, in safe_execute
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 137, in failure_function
+    raise ValueError("エラー")
+ValueError: エラー
+{"timestamp": "2025-07-18 13:37:51", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト, エラー: エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 201, in safe_execute
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 145, in failure_function
+    raise ValueError("エラー")
+ValueError: エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 0"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 1"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 2"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 3"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 4"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "CRITICAL", "function": "handle_critical_error", "line": 231, "message": "クリティカルエラー - コンテキスト: システム初期化, エラー: クリティカルエラー"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 0"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 1"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 2"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 3"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 4"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 5"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 6"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 7"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 8"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 9"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 10"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 11"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 12"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 13"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 14"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 15"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 16"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 17"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 18"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 19"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 20"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 21"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 22"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 23"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 24"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 25"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 26"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 27"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 28"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 29"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 30"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 31"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 32"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 33"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 34"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 35"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 36"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 37"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 38"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 39"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 40"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 41"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 42"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 43"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 44"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 45"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 46"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 47"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 48"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 49"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 50"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 51"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 52"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 53"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 54"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 55"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 56"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 57"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 58"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 59"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 60"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 61"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 62"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 63"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 64"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 65"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 66"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 67"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 68"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 69"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 70"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 71"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 72"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 73"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 74"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 75"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 76"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 77"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 78"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 79"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 80"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 81"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 82"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 83"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 84"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 85"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 86"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 87"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 88"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 89"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 90"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 91"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 92"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 93"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 94"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 95"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 96"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 97"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 98"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 99"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 100"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 101"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 102"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 103"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: テストエラー 104"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト, エラー: エクスポートテスト用エラー"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "export_error_log", "line": 276, "message": "エラーログが C:\Users\TAKAGI\AppData\Local\Temp\tmpmbv2vh9p.txt にエクスポートされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaEvaluation): 数式の評価に失敗しました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): 無効な数式です"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_calculation_error", "line": 136, "message": "フラクタル計算エラー - ステージ: iteration, エラー: 計算でオーバーフローが発生"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テストコンテキスト, エラー: 一般的なエラー"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_image_export_error", "line": 172, "message": "画像出力エラー - ファイル: /path/to/image.png, 形式: PNG, エラー: 画像の保存に失敗"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_memory_error", "line": 195, "message": "メモリエラー - 要求サイズ: 104857600, エラー: メモリが不足しています"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: 一般エラー1"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: , エラー: 一般エラー2"}
+NoneType: None
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): 数式エラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: , エラー: UIエラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_plugin_error", "line": 160, "message": "プラグインエラー - 名前: TestPlugin, パス: /path/to/plugin, エラー: プラグインの読み込みに失敗"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_project_file_error", "line": 184, "message": "プロジェクトファイルエラー - 操作: load, ファイル: /path/to/project.json, エラー: ファイルの読み込みに失敗"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: FractalWidget, エラー: ウィジェットの初期化に失敗"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): 無効な数式"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_calculation_error", "line": 136, "message": "フラクタル計算エラー - ステージ: test_stage, エラー: テスト用エラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_plugin_error", "line": 160, "message": "プラグインエラー - 名前: TestPlugin, パス: /path/to/plugin, エラー: プラグインエラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: TestWidget, エラー: UIエラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_formula_error", "line": 146, "message": "数式エラー (FormulaValidation): デコレータテスト用エラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_plugin_error", "line": 160, "message": "プラグインエラー - 名前: TestPlugin, パス: /test/path, エラー: プラグインテスト用エラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_ui_error", "line": 206, "message": "UIエラー - コンポーネント: TestComponent, エラー: UIテスト用エラー"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (高品質), エラー: 高品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 255, in high_quality
+    raise ValueError("高品質エラー")
+ValueError: 高品質エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (中品質), エラー: 中品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 258, in medium_quality
+    raise ValueError("中品質エラー")
+ValueError: 中品質エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (低品質), エラー: 低品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 261, in low_quality
+    raise ValueError("低品質エラー")
+ValueError: 低品質エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト - 全ての品質レベルで失敗, エラー: 低品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 261, in low_quality
+    raise ValueError("低品質エラー")
+ValueError: 低品質エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (高品質), エラー: 高品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 239, in high_quality
+    raise ValueError("高品質エラー")
+ValueError: 高品質エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (中品質), エラー: 中品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 242, in medium_quality
+    raise ValueError("中品質エラー")
+ValueError: 中品質エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (高品質), エラー: 高品質エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 256, in graceful_degradation
+    return func()
+           ^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 223, in high_quality
+    raise ValueError("高品質エラー")
+ValueError: 高品質エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (試行 1), エラー: 一時的なエラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 223, in retry_with_fallback
+    return primary_func()
+           ^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 179, in primary_func
+    raise ValueError("一時的なエラー")
+ValueError: 一時的なエラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "clear_error_history", "line": 257, "message": "エラー履歴がクリアされました"}
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (試行 1), エラー: プライマリエラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 223, in retry_with_fallback
+    return primary_func()
+           ^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 194, in primary_func
+    raise ValueError("プライマリエラー")
+ValueError: プライマリエラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト (試行 2), エラー: プライマリエラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 223, in retry_with_fallback
+    return primary_func()
+           ^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 194, in primary_func
+    raise ValueError("プライマリエラー")
+ValueError: プライマリエラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト, エラー: エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 201, in safe_execute
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 137, in failure_function
+    raise ValueError("エラー")
+ValueError: エラー
+{"timestamp": "2025-07-18 13:57:36", "logger": "fractal_editor.error_handling", "level": "ERROR", "function": "handle_general_error", "line": 218, "message": "一般エラー - コンテキスト: テスト, エラー: エラー"}
+Traceback (most recent call last):
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 123, in general_operation
+    yield
+  File "C:\TAKAGI\MyCode\kiro_frac\fractal_editor\services\error_context.py", line 201, in safe_execute
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 145, in failure_function
+    raise ValueError("エラー")
+ValueError: エラー

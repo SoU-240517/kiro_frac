@@ -263,9 +263,9 @@ class MemoryManager:
             self.logger.error(f"配列割り当てでエラー: {e}")
             return None
     
-    def _cleanup_allocation_callback(self, allocation_id: str) -> Callable[[], None]:
+    def _cleanup_allocation_callback(self, allocation_id: str) -> Callable[[Any], None]:
         """割り当て解放時のコールバック関数を生成"""
-        def callback():
+        def callback(weak_ref):
             if allocation_id in self.allocations:
                 allocation = self.allocations.pop(allocation_id)
                 self.total_deallocations += 1
