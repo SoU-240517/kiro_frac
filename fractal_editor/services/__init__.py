@@ -1,21 +1,4 @@
 """
-Services for the Fractal Editor application.
+Services module for fractal editor.
+Contains business logic and utility services.
 """
-
-from .error_handling import (
-    ErrorHandlingService,
-    FractalCalculationException,
-    FormulaValidationError,
-    FormulaEvaluationError,
-    PluginLoadError
-)
-from .parallel_calculator import ParallelCalculator
-
-__all__ = [
-    'ErrorHandlingService',
-    'FractalCalculationException',
-    'FormulaValidationError', 
-    'FormulaEvaluationError',
-    'PluginLoadError',
-    'ParallelCalculator'
-]
