@@ -129,6 +129,28 @@ class FractalGeneratorRegistry:
         temp_instance = generator_class()
         self._generators[temp_instance.name] = generator_class
     
+    def unregister(self, generator_class: type[FractalGenerator]) -> bool:
+        """
+        Unregister a fractal generator class.
+        
+        Args:
+            generator_class: The generator class to unregister
+            
+        Returns:
+            True if the generator was unregistered, False if it wasn't registered
+        """
+        try:
+            # Create a temporary instance to get the name
+            temp_instance = generator_class()
+            name = temp_instance.name
+            
+            if name in self._generators:
+                del self._generators[name]
+                return True
+            return False
+        except Exception:
+            return False
+    
     def get_generator(self, name: str) -> FractalGenerator:
         """
         Get a fractal generator instance by name.
