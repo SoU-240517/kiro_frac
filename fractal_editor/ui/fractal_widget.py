@@ -3,12 +3,13 @@
 マウスによるパン・ズーム機能とリアルタイム画像更新機能を提供
 """
 
-from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout
+from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QApplication
 from PyQt6.QtCore import Qt, pyqtSignal, QPoint, QTimer
 from PyQt6.QtGui import QPainter, QPixmap, QWheelEvent, QMouseEvent, QPaintEvent
 from typing import Optional, Tuple
 import numpy as np
 from PIL import Image
+from ..services.background_calculator import get_responsive_ui_manager
 
 
 class FractalWidget(QWidget):
@@ -52,6 +53,14 @@ class FractalWidget(QWidget):
         self.update_timer = QTimer()
         self.update_timer.setSingleShot(True)
         self.update_timer.timeout.connect(self._emit_region_changed)
+        
+        # UI応答性管理
+        self.responsive_ui_manager = get_responsive_ui_manager()
+        
+        # UI更新タイマー（応答性維持用）
+        self.ui_update_timer = QTimer()
+        self.ui_update_timer.timeout.connect(self._process_events)
+        self.ui_update_timer.setInterval(50)  # 50ms間隔
         
         # マウス操作の設定
         self.zoom_sensitivity = 0.1
@@ -329,12 +338,30 @@ class FractalWidget(QWidget):
         self.update()
         self.pan_changed.emit(x, y)
     
+    def _process_events(self) -> None:
+        """UI応答性維持のためのイベント処理"""
+        self.responsive_ui_manager.process_events_periodically()
+    
+    def start_responsive_mode(self) -> None:
+        """応答性維持モードを開始"""
+        self.ui_update_timer.start()
+    
+    def stop_responsive_mode(self) -> None:
+        """応答性維持モードを停止"""
+        self.ui_update_timer.stop()
+    
+    def set_responsive_update_interval(self, interval_ms: int) -> None:
+        """応答性維持の更新間隔を設定"""
+        self.ui_update_timer.setInterval(max(10, interval_ms))
+        self.responsive_ui_manager.set_update_interval(interval_ms)
+    
     def clear_image(self) -> None:
         """表示画像をクリア"""
         self.fractal_pixmap = None
         self.original_image = None
         self.complex_region = None
         self.original_region = None
+        self.stop_responsive_mode()  # 応答性モードも停止
         self.update()
     
     def save_image(self, file_path: str) -> bool:
@@ -346,3 +373,134 @@ class FractalWidget(QWidget):
             return self.fractal_pixmap.save(file_path)
         except Exception:
             return False
+    
+    def set_progressive_image(self, image_array: np.ndarray, stage: int, total_stages: int, complex_region=None) -> None:
+        """
+        プログレッシブレンダリング用の画像を設定
+        
+        Args:
+            image_array: NumPy配列形式の画像データ
+            stage: 現在のステージ
+            total_stages: 総ステージ数
+            complex_region: 画像に対応する複素平面の範囲
+        """
+        # 通常の画像設定を実行
+        self.set_fractal_image(image_array, complex_region)
+        
+        # プログレッシブレンダリング情報を表示
+        if stage < total_stages - 1:
+            # 最終ステージでない場合は、低品質であることを示す
+            self.setToolTip(f"プログレッシブレンダリング中... ステージ {stage + 1}/{total_stages}")
+        else:
+            # 最終ステージの場合はツールチップをクリア
+            self.setToolTip("")
+    
+    def enable_smooth_updates(self, enabled: bool = True) -> None:
+        """
+        スムーズな画像更新を有効/無効にする
+        
+        Args:
+            enabled: スムーズ更新を有効にするか
+        """
+        if enabled:
+            # 更新間隔を短くして滑らかに
+            self.ui_update_timer.setInterval(30)  # 30ms間隔
+            self.update_timer.setInterval(50)     # 50ms遅延
+        else:
+            # デフォルト設定に戻す
+            self.ui_update_timer.setInterval(50)  # 50ms間隔
+            self.update_timer.setInterval(100)    # 100ms遅延
+    
+    def set_quality_mode(self, high_quality: bool = True) -> None:
+        """
+        表示品質モードを設定
+        
+        Args:
+            high_quality: 高品質モードを有効にするか
+        """
+        if high_quality:
+            # 高品質レンダリング設定
+            self.zoom_sensitivity = 0.05  # より細かいズーム
+            self.min_zoom = 0.01
+            self.max_zoom = 1000.0
+        else:
+            # 高速レンダリング設定
+            self.zoom_sensitivity = 0.1   # デフォルト
+            self.min_zoom = 0.1
+            self.max_zoom = 100.0
+    
+    def get_display_statistics(self) -> dict:
+        """表示統計情報を取得"""
+        stats = {
+            'zoom_factor': self.zoom_factor,
+            'pan_offset': (self.pan_offset.x(), self.pan_offset.y()),
+            'has_image': self.fractal_pixmap is not None,
+            'widget_size': (self.width(), self.height()),
+            'responsive_mode_active': self.ui_update_timer.isActive(),
+            'update_interval_ms': self.ui_update_timer.interval()
+        }
+        
+        if self.fractal_pixmap:
+            stats['image_size'] = (self.fractal_pixmap.width(), self.fractal_pixmap.height())
+        
+        if self.complex_region:
+            stats['complex_region'] = {
+                'width': self.complex_region.width,
+                'height': self.complex_region.height,
+                'center_real': (self.complex_region.top_left.real + self.complex_region.bottom_right.real) / 2,
+                'center_imag': (self.complex_region.top_left.imaginary + self.complex_region.bottom_right.imaginary) / 2
+            }
+        
+        return stats
+    
+    def optimize_for_performance(self) -> None:
+        """パフォーマンス最適化を実行"""
+        # UI応答性管理からパフォーマンス情報を取得
+        responsiveness = self.responsive_ui_manager.monitor_ui_responsiveness()
+        
+        # パフォーマンスに基づいて設定を調整
+        if responsiveness['responsiveness'] == 'poor':
+            # パフォーマンスが悪い場合
+            self.enable_smooth_updates(False)
+            self.set_quality_mode(False)
+            self.set_responsive_update_interval(100)  # 更新頻度を下げる
+        elif responsiveness['responsiveness'] == 'acceptable':
+            # 中程度のパフォーマンス
+            self.enable_smooth_updates(True)
+            self.set_quality_mode(False)
+            self.set_responsive_update_interval(75)
+        else:
+            # 高パフォーマンス
+            self.enable_smooth_updates(True)
+            self.set_quality_mode(True)
+            self.set_responsive_update_interval(50)
+    
+    def handle_parameter_change(self, calculation_func, parameters) -> None:
+        """
+        パラメータ変更時の処理（リアルタイムプレビュー用）
+        
+        Args:
+            calculation_func: 計算関数
+            parameters: 新しいパラメータ
+        """
+        # 応答性維持モードを開始
+        self.start_responsive_mode()
+        
+        # プレビュー用パラメータでの計算をスケジュール
+        # この処理は親ウィンドウ（MainWindow）に委譲
+        parent_window = self.window()
+        if hasattr(parent_window, 'schedule_preview_update'):
+            parent_window.schedule_preview_update(calculation_func, parameters)
+    
+    def enterEvent(self, event) -> None:
+        """マウスがウィジェットに入った時の処理"""
+        super().enterEvent(event)
+        # マウスオーバー時に応答性モードを開始
+        self.start_responsive_mode()
+    
+    def leaveEvent(self, event) -> None:
+        """マウスがウィジェットから出た時の処理"""
+        super().leaveEvent(event)
+        # マウスが離れた時に応答性モードを停止（パフォーマンス節約）
+        if not self.is_panning:
+            self.stop_responsive_mode()

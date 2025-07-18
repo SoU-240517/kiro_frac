@@ -12,6 +12,7 @@ from .base import FractalGenerator
 from ..models.data_models import (
     FractalParameters, FractalResult, ParameterDefinition, ComplexNumber
 )
+from ..services.memory_manager import MemoryManager, MemoryPriority
 
 
 class JuliaGenerator(FractalGenerator):
@@ -46,70 +47,105 @@ class JuliaGenerator(FractalGenerator):
         if not self.validate_parameters(parameters):
             raise ValueError("Invalid parameters for Julia generator")
         
-        start_time = time.time()
+        # メモリマネージャーを取得
+        memory_manager = MemoryManager()
         
-        # Extract parameters
+        # メモリ使用量を事前チェック
         width, height = parameters.image_size
-        max_iterations = parameters.max_iterations
-        region = parameters.region
-        
-        # Get Julia set parameters
-        c_real = parameters.get_custom_parameter('c_real', -0.7)
-        c_imag = parameters.get_custom_parameter('c_imag', 0.27015)
-        c = complex(c_real, c_imag)
-        
-        # Get escape radius (default 2.0 for Julia set)
-        escape_radius = parameters.get_custom_parameter('escape_radius', 2.0)
-        escape_radius_squared = escape_radius * escape_radius
-        
-        # Create coordinate arrays
-        x_min, x_max = region.top_left.real, region.bottom_right.real
-        y_min, y_max = region.bottom_right.imaginary, region.top_left.imaginary
-        
-        x_coords = np.linspace(x_min, x_max, width)
-        y_coords = np.linspace(y_min, y_max, height)
-        
-        # Initialize result array
-        iteration_data = np.zeros((height, width), dtype=np.int32)
-        
-        # Calculate Julia set
-        for i, y in enumerate(y_coords):
-            for j, x in enumerate(x_coords):
-                # z is the starting point for this pixel
-                z = complex(x, y)
-                
-                # Iterate the Julia formula: z = z^2 + c
-                for n in range(max_iterations):
-                    # Check for escape condition
-                    if z.real * z.real + z.imag * z.imag > escape_radius_squared:
-                        iteration_data[i, j] = n
-                        break
-                    
-                    # Julia iteration: z = z^2 + c
-                    z = z * z + c
-                else:
-                    # Point didn't escape within max_iterations
-                    iteration_data[i, j] = max_iterations
-        
-        calculation_time = time.time() - start_time
-        
-        # Create result with metadata
-        result = FractalResult(
-            iteration_data=iteration_data,
-            region=region,
-            calculation_time=calculation_time,
-            parameters=parameters,
-            metadata={
-                'generator': self.name,
-                'c_parameter': c,
-                'c_real': c_real,
-                'c_imag': c_imag,
-                'escape_radius': escape_radius,
-                'algorithm': 'standard_julia'
-            }
+        estimated_memory = memory_manager.estimate_fractal_memory_usage(
+            width, height, parameters.max_iterations
         )
         
-        return result
+        if not memory_manager.check_memory_availability(estimated_memory):
+            # メモリ不足時の最適化提案を取得
+            optimization = memory_manager.optimize_for_large_computation(
+                width, height, parameters.max_iterations
+            )
+            raise MemoryError(
+                f"メモリ不足でジュリア集合計算を実行できません。"
+                f"推定メモリ使用量: {optimization['estimated_memory_mb']:.1f}MB, "
+                f"利用可能メモリ: {optimization['available_memory_mb']:.1f}MB。"
+                f"推奨事項: {optimization['recommendations']}"
+            )
+        
+        # メモリ管理コンテキストで計算を実行
+        with memory_manager.memory_context("Julia calculation"):
+            start_time = time.time()
+            
+            # Extract parameters
+            max_iterations = parameters.max_iterations
+            region = parameters.region
+            
+            # Get Julia set parameters
+            c_real = parameters.get_custom_parameter('c_real', -0.7)
+            c_imag = parameters.get_custom_parameter('c_imag', 0.27015)
+            c = complex(c_real, c_imag)
+            
+            # Get escape radius (default 2.0 for Julia set)
+            escape_radius = parameters.get_custom_parameter('escape_radius', 2.0)
+            escape_radius_squared = escape_radius * escape_radius
+            
+            # Create coordinate arrays
+            x_min, x_max = region.top_left.real, region.bottom_right.real
+            y_min, y_max = region.bottom_right.imaginary, region.top_left.imaginary
+            
+            x_coords = np.linspace(x_min, x_max, width)
+            y_coords = np.linspace(y_min, y_max, height)
+            
+            # メモリ管理された配列を割り当て
+            iteration_data = memory_manager.allocate_array(
+                (height, width), 
+                dtype=np.int32,
+                priority=MemoryPriority.HIGH,
+                description=f"Julia result {width}x{height}"
+            )
+            
+            if iteration_data is None:
+                raise MemoryError("結果配列の割り当てに失敗しました")
+            
+            # Calculate Julia set
+            for i, y in enumerate(y_coords):
+                for j, x in enumerate(x_coords):
+                    # z is the starting point for this pixel
+                    z = complex(x, y)
+                    
+                    # Iterate the Julia formula: z = z^2 + c
+                    for n in range(max_iterations):
+                        # Check for escape condition
+                        if z.real * z.real + z.imag * z.imag > escape_radius_squared:
+                            iteration_data[i, j] = n
+                            break
+                        
+                        # Julia iteration: z = z^2 + c
+                        z = z * z + c
+                    else:
+                        # Point didn't escape within max_iterations
+                        iteration_data[i, j] = max_iterations
+            
+            calculation_time = time.time() - start_time
+            
+            # メモリ統計を取得
+            memory_stats = memory_manager.get_memory_statistics()
+            
+            # Create result with metadata
+            result = FractalResult(
+                iteration_data=iteration_data,
+                region=region,
+                calculation_time=calculation_time,
+                parameters=parameters,
+                metadata={
+                    'generator': self.name,
+                    'c_parameter': c,
+                    'c_real': c_real,
+                    'c_imag': c_imag,
+                    'escape_radius': escape_radius,
+                    'algorithm': 'memory_managed_julia',
+                    'memory_usage_mb': memory_stats['allocation_statistics']['total_allocated_mb'],
+                    'peak_memory_mb': memory_stats['allocation_statistics']['peak_memory_mb']
+                }
+            )
+            
+            return result
     
     def get_parameter_definitions(self) -> List[ParameterDefinition]:
         """

@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from enum import Enum
 import queue
 import os
+from ..services.memory_manager import MemoryManager, MemoryPriority, MemoryEfficientArrayOps
 
 
 class ComputationStatus(Enum):
@@ -288,118 +289,168 @@ class ParallelCalculator:
         from ..generators.mandelbrot import MandelbrotGenerator
         from ..generators.julia import JuliaGenerator
         
-        # Determine which generator to use based on the function
-        if hasattr(generator_func, '__self__'):
-            generator = generator_func.__self__
-        else:
-            # Fallback - create a new Mandelbrot generator
-            generator = MandelbrotGenerator()
+        # メモリマネージャーを取得
+        memory_manager = MemoryManager()
         
+        # メモリ使用量を事前チェック
         width, height = original_params.image_size
-        max_iterations = original_params.max_iterations
-        region = original_params.region
-        
-        # Get generator-specific parameters
-        if isinstance(generator, MandelbrotGenerator):
-            escape_radius = original_params.get_custom_parameter('escape_radius', 2.0)
-            escape_radius_squared = escape_radius * escape_radius
-        elif hasattr(generator, '__class__') and 'Julia' in generator.__class__.__name__:
-            c_real = original_params.get_custom_parameter('c_real', -0.7)
-            c_imag = original_params.get_custom_parameter('c_imag', 0.27015)
-            c = complex(c_real, c_imag)
-            escape_radius = original_params.get_custom_parameter('escape_radius', 2.0)
-            escape_radius_squared = escape_radius * escape_radius
-        else:
-            # Generic parameters
-            escape_radius = 2.0
-            escape_radius_squared = 4.0
-        
-        # Create coordinate arrays (same as sequential)
-        x_min, x_max = region.top_left.real, region.bottom_right.real
-        y_min, y_max = region.bottom_right.imaginary, region.top_left.imaginary
-        
-        x_coords = np.linspace(x_min, x_max, width)
-        y_coords = np.linspace(y_min, y_max, height)
-        
-        # Initialize result array
-        iteration_data = np.zeros((height, width), dtype=np.int32)
-        
-        def calculate_row(row_index):
-            """Calculate a single row of the fractal."""
-            y = y_coords[row_index]
-            row_data = np.zeros(width, dtype=np.int32)
-            
-            for j, x in enumerate(x_coords):
-                if isinstance(generator, MandelbrotGenerator):
-                    # Mandelbrot: c = complex point, z starts at 0
-                    c_point = complex(x, y)
-                    z = complex(0, 0)
-                elif hasattr(generator, '__class__') and 'Julia' in generator.__class__.__name__:
-                    # Julia: z = complex point, c is fixed parameter
-                    z = complex(x, y)
-                    c_point = c  # Use the fixed c parameter defined above
-                else:
-                    # Default to Mandelbrot behavior
-                    c_point = complex(x, y)
-                    z = complex(0, 0)
-                
-                # Iterate the fractal formula
-                for n in range(max_iterations):
-                    # Check for escape condition
-                    if z.real * z.real + z.imag * z.imag > escape_radius_squared:
-                        row_data[j] = n
-                        break
-                    
-                    # Apply the iteration formula: z = z^2 + c
-                    z = z * z + c_point
-                else:
-                    # Point didn't escape within max_iterations
-                    row_data[j] = max_iterations
-            
-            return row_index, row_data
-        
-        # Calculate rows in parallel
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self.num_processes) as executor:
-            # Submit all rows for processing
-            future_to_row = {executor.submit(calculate_row, i): i for i in range(height)}
-            
-            completed_count = 0
-            for future in concurrent.futures.as_completed(future_to_row):
-                try:
-                    # Check for cancellation
-                    if self._cancel_event.is_set():
-                        executor.shutdown(wait=False)
-                        raise RuntimeError("Computation was cancelled")
-                    
-                    # Get result
-                    row_index, row_data = future.result()
-                    iteration_data[row_index] = row_data
-                    completed_count += 1
-                    
-                    # Update progress
-                    self._update_progress(completed_count, height)
-                    
-                except Exception as e:
-                    executor.shutdown(wait=False)
-                    raise RuntimeError(f"Row calculation failed: {e}")
-        
-        # Create the result
-        from ..models.data_models import FractalResult
-        calculation_time = 0.1  # Placeholder - timing is handled at higher level
-        
-        result = FractalResult(
-            iteration_data=iteration_data,
-            region=region,
-            calculation_time=calculation_time,
-            parameters=original_params,
-            metadata={
-                'generator': 'Parallel Row Computation',
-                'num_processes': self.num_processes,
-                'algorithm': 'parallel_rows'
-            }
+        estimated_memory = memory_manager.estimate_fractal_memory_usage(
+            width, height, original_params.max_iterations
         )
         
-        return [result]  # Return as list to match expected interface
+        if not memory_manager.check_memory_availability(estimated_memory):
+            # メモリ不足時の最適化提案を取得
+            optimization = memory_manager.optimize_for_large_computation(
+                width, height, original_params.max_iterations
+            )
+            raise MemoryError(
+                f"メモリ不足で並列フラクタル計算を実行できません。"
+                f"推定メモリ使用量: {optimization['estimated_memory_mb']:.1f}MB, "
+                f"利用可能メモリ: {optimization['available_memory_mb']:.1f}MB。"
+                f"推奨事項: {optimization['recommendations']}"
+            )
+        
+        # メモリ管理コンテキストで計算を実行
+        with memory_manager.memory_context("Parallel fractal calculation"):
+            # Determine which generator to use based on the function
+            if hasattr(generator_func, '__self__'):
+                generator = generator_func.__self__
+            else:
+                # Fallback - create a new Mandelbrot generator
+                generator = MandelbrotGenerator()
+            
+            max_iterations = original_params.max_iterations
+            region = original_params.region
+            
+            # Get generator-specific parameters
+            if isinstance(generator, MandelbrotGenerator):
+                escape_radius = original_params.get_custom_parameter('escape_radius', 2.0)
+                escape_radius_squared = escape_radius * escape_radius
+            elif hasattr(generator, '__class__') and 'Julia' in generator.__class__.__name__:
+                c_real = original_params.get_custom_parameter('c_real', -0.7)
+                c_imag = original_params.get_custom_parameter('c_imag', 0.27015)
+                c = complex(c_real, c_imag)
+                escape_radius = original_params.get_custom_parameter('escape_radius', 2.0)
+                escape_radius_squared = escape_radius * escape_radius
+            else:
+                # Generic parameters
+                escape_radius = 2.0
+                escape_radius_squared = 4.0
+            
+            # Create coordinate arrays (same as sequential)
+            x_min, x_max = region.top_left.real, region.bottom_right.real
+            y_min, y_max = region.bottom_right.imaginary, region.top_left.imaginary
+            
+            x_coords = np.linspace(x_min, x_max, width)
+            y_coords = np.linspace(y_min, y_max, height)
+            
+            # メモリ管理された配列を割り当て
+            iteration_data = memory_manager.allocate_array(
+                (height, width), 
+                dtype=np.int32,
+                priority=MemoryPriority.HIGH,
+                description=f"Parallel fractal result {width}x{height}"
+            )
+            
+            if iteration_data is None:
+                raise MemoryError("並列計算用結果配列の割り当てに失敗しました")
+            
+            def calculate_row(row_index):
+                """Calculate a single row of the fractal."""
+                y = y_coords[row_index]
+                
+                # 行データ用の小さな配列を割り当て
+                row_data = memory_manager.allocate_array(
+                    (width,), 
+                    dtype=np.int32,
+                    priority=MemoryPriority.NORMAL,
+                    description=f"Row {row_index} data"
+                )
+                
+                if row_data is None:
+                    # フォールバック: 通常のnumpy配列を使用
+                    row_data = np.zeros(width, dtype=np.int32)
+                
+                for j, x in enumerate(x_coords):
+                    if isinstance(generator, MandelbrotGenerator):
+                        # Mandelbrot: c = complex point, z starts at 0
+                        c_point = complex(x, y)
+                        z = complex(0, 0)
+                    elif hasattr(generator, '__class__') and 'Julia' in generator.__class__.__name__:
+                        # Julia: z = complex point, c is fixed parameter
+                        z = complex(x, y)
+                        c_point = c  # Use the fixed c parameter defined above
+                    else:
+                        # Default to Mandelbrot behavior
+                        c_point = complex(x, y)
+                        z = complex(0, 0)
+                    
+                    # Iterate the fractal formula
+                    for n in range(max_iterations):
+                        # Check for escape condition
+                        if z.real * z.real + z.imag * z.imag > escape_radius_squared:
+                            row_data[j] = n
+                            break
+                        
+                        # Apply the iteration formula: z = z^2 + c
+                        z = z * z + c_point
+                    else:
+                        # Point didn't escape within max_iterations
+                        row_data[j] = max_iterations
+                
+                return row_index, row_data
+            
+            # Calculate rows in parallel
+            with concurrent.futures.ThreadPoolExecutor(max_workers=self.num_processes) as executor:
+                # Submit all rows for processing
+                future_to_row = {executor.submit(calculate_row, i): i for i in range(height)}
+                
+                completed_count = 0
+                for future in concurrent.futures.as_completed(future_to_row):
+                    try:
+                        # Check for cancellation
+                        if self._cancel_event.is_set():
+                            executor.shutdown(wait=False)
+                            raise RuntimeError("Computation was cancelled")
+                        
+                        # Get result
+                        row_index, row_data = future.result()
+                        iteration_data[row_index] = row_data
+                        completed_count += 1
+                        
+                        # Update progress
+                        self._update_progress(completed_count, height)
+                        
+                        # 定期的にガベージコレクションを実行（メモリ効率化）
+                        if completed_count % max(1, height // 10) == 0:
+                            memory_manager.force_garbage_collection()
+                        
+                    except Exception as e:
+                        executor.shutdown(wait=False)
+                        raise RuntimeError(f"Row calculation failed: {e}")
+            
+            # メモリ統計を取得
+            memory_stats = memory_manager.get_memory_statistics()
+            
+            # Create the result
+            from ..models.data_models import FractalResult
+            calculation_time = 0.1  # Placeholder - timing is handled at higher level
+            
+            result = FractalResult(
+                iteration_data=iteration_data,
+                region=region,
+                calculation_time=calculation_time,
+                parameters=original_params,
+                metadata={
+                    'generator': 'Memory-Managed Parallel Row Computation',
+                    'num_processes': self.num_processes,
+                    'algorithm': 'memory_managed_parallel_rows',
+                    'memory_usage_mb': memory_stats['allocation_statistics']['total_allocated_mb'],
+                    'peak_memory_mb': memory_stats['allocation_statistics']['peak_memory_mb']
+                }
+            )
+            
+            return [result]  # Return as list to match expected interface
     
     def _combine_results(self, chunk_results: List[Any], original_params: Any, calculation_time: float) -> Any:
         """

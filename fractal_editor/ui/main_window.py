@@ -6,13 +6,17 @@ PyQt6を使用したフラクタルエディタのメインウィンドウ
 from PyQt6.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
     QMenuBar, QToolBar, QStatusBar, QDockWidget,
-    QLabel, QProgressBar, QSplitter
+    QLabel, QProgressBar, QSplitter, QMessageBox
 )
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtCore import Qt, pyqtSignal, QTimer
 from PyQt6.QtGui import QIcon, QKeySequence, QAction
 from typing import Optional
 
 from .formula_editor import FormulaEditorWidget
+from ..services.background_calculator import (
+    BackgroundCalculationService, get_background_calculation_service,
+    get_responsive_ui_manager
+)
 
 
 class MainWindow(QMainWindow):
@@ -39,6 +43,13 @@ class MainWindow(QMainWindow):
         # エクスポートコントローラーは遅延初期化
         self.export_controller = None
         
+        # バックグラウンド計算サービスを初期化
+        self.background_service = get_background_calculation_service()
+        self.responsive_ui_manager = get_responsive_ui_manager()
+        
+        # 計算キャンセル用のアクション
+        self.cancel_action = None
+        
         # 中央ウィジェットとレイアウトの設定
         self._setup_central_widget()
         
@@ -56,6 +67,9 @@ class MainWindow(QMainWindow):
         
         # ウィンドウの初期状態設定
         self._setup_window_state()
+        
+        # バックグラウンド計算の設定
+        self._setup_background_calculation()
         
         # シグナル接続
         self._connect_signals()
@@ -368,6 +382,160 @@ class MainWindow(QMainWindow):
         """式エディタウィジェットを取得"""
         return self.formula_editor
     
+    def _setup_background_calculation(self) -> None:
+        """バックグラウンド計算の設定"""
+        # バックグラウンド計算サービスのシグナルを接続
+        self.background_service.calculation_started.connect(self._on_calculation_started)
+        self.background_service.calculation_completed.connect(self._on_calculation_completed)
+        self.background_service.calculation_cancelled.connect(self._on_calculation_cancelled)
+        self.background_service.calculation_error.connect(self._on_calculation_error)
+        
+        # キャンセルアクションを作成（初期は無効）
+        self.cancel_action = QAction("計算をキャンセル", self)
+        self.cancel_action.setShortcut(QKeySequence("Escape"))
+        self.cancel_action.setStatusTip("現在の計算をキャンセル")
+        self.cancel_action.triggered.connect(self._cancel_calculation)
+        self.cancel_action.setEnabled(False)
+        
+        # ツールバーにキャンセルボタンを追加
+        main_toolbar = self.findChild(QToolBar, "MainToolBar")
+        if main_toolbar:
+            main_toolbar.addSeparator()
+            main_toolbar.addAction(self.cancel_action)
+        
+        # UI応答性の最適化設定
+        self.responsive_ui_manager.optimize_for_system_performance()
+        
+        # プログレッシブレンダリング用のタイマー
+        self.progressive_timer = QTimer()
+        self.progressive_timer.setSingleShot(True)
+        self.progressive_timer.timeout.connect(self._start_progressive_rendering)
+        
+        # リアルタイムプレビュー用の設定
+        self.preview_enabled = True
+        self.preview_delay_ms = 500  # プレビュー開始までの遅延
+        self.last_parameter_change_time = 0
+    
+    def start_background_calculation(self, calculation_func, parameters, show_progress: bool = True) -> bool:
+        """
+        バックグラウンド計算を開始
+        
+        Args:
+            calculation_func: 計算関数
+            parameters: 計算パラメータ
+            show_progress: プログレスダイアログを表示するか
+            
+        Returns:
+            計算開始に成功した場合True
+        """
+        if self.background_service.is_calculating():
+            QMessageBox.warning(
+                self, "計算中", 
+                "既に計算が実行中です。現在の計算が完了してから再試行してください。"
+            )
+            return False
+        
+        return self.background_service.start_calculation(
+            calculation_func, parameters, show_progress, self
+        )
+    
+    def _cancel_calculation(self) -> None:
+        """計算をキャンセル"""
+        if self.background_service.is_calculating():
+            reply = QMessageBox.question(
+                self, "計算キャンセル",
+                "現在の計算をキャンセルしますか？",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.No
+            )
+            
+            if reply == QMessageBox.StandardButton.Yes:
+                self.background_service.cancel_calculation()
+    
+    def _on_calculation_started(self) -> None:
+        """計算開始時の処理"""
+        self.set_status_message("フラクタル計算を開始しました...")
+        self.show_progress(True)
+        self.cancel_action.setEnabled(True)
+        
+        # UI要素を無効化（計算中は操作を制限）
+        self._set_ui_enabled_during_calculation(False)
+    
+    def _on_calculation_completed(self, result) -> None:
+        """計算完了時の処理"""
+        self.show_progress(False)
+        self.cancel_action.setEnabled(False)
+        
+        # 計算時間を表示
+        if hasattr(result, 'calculation_time'):
+            self.set_calculation_time(result.calculation_time)
+        
+        # メモリ使用量情報を表示
+        if hasattr(result, 'metadata') and 'memory_usage_mb' in result.metadata:
+            memory_mb = result.metadata['memory_usage_mb']
+            self.set_status_message(
+                f"計算完了 (メモリ使用量: {memory_mb:.1f}MB)", 5000
+            )
+        else:
+            self.set_status_message("フラクタル計算が完了しました", 3000)
+        
+        # UI要素を再有効化
+        self._set_ui_enabled_during_calculation(True)
+        
+        # エクスポート用にフラクタルデータを設定
+        if hasattr(result, 'parameters'):
+            max_iterations = result.parameters.max_iterations
+            self.set_fractal_data_for_export(result, max_iterations)
+    
+    def _on_calculation_cancelled(self) -> None:
+        """計算キャンセル時の処理"""
+        self.show_progress(False)
+        self.cancel_action.setEnabled(False)
+        self.set_status_message("計算がキャンセルされました", 3000)
+        
+        # UI要素を再有効化
+        self._set_ui_enabled_during_calculation(True)
+    
+    def _on_calculation_error(self, error_message: str) -> None:
+        """計算エラー時の処理"""
+        self.show_progress(False)
+        self.cancel_action.setEnabled(False)
+        self.set_status_message(f"計算エラー: {error_message}", 5000)
+        
+        # エラーダイアログを表示
+        QMessageBox.critical(
+            self, "計算エラー",
+            f"フラクタル計算でエラーが発生しました:\n\n{error_message}"
+        )
+        
+        # UI要素を再有効化
+        self._set_ui_enabled_during_calculation(True)
+    
+    def _set_ui_enabled_during_calculation(self, enabled: bool) -> None:
+        """計算中のUI要素の有効/無効を切り替え"""
+        # フラクタルタイプ変更ボタンを無効化/有効化
+        main_toolbar = self.findChild(QToolBar, "MainToolBar")
+        if main_toolbar:
+            for action in main_toolbar.actions():
+                if action.text() in ["マンデルブロ", "ジュリア", "カスタム"]:
+                    action.setEnabled(enabled)
+        
+        # メニューの一部項目を無効化/有効化
+        menubar = self.menuBar()
+        for menu_action in menubar.actions():
+            menu = menu_action.menu()
+            if menu and menu.title().startswith("フラクタル"):
+                for action in menu.actions():
+                    action.setEnabled(enabled)
+    
+    def get_calculation_statistics(self) -> dict:
+        """現在の計算統計情報を取得"""
+        return self.background_service.get_calculation_statistics()
+    
+    def is_calculating(self) -> bool:
+        """現在計算中かどうか"""
+        return self.background_service.is_calculating()
+    
     def _connect_signals(self) -> None:
         """シグナルを接続"""
         # エクスポート要求シグナルをエクスポートコントローラーに接続
@@ -405,3 +573,175 @@ class MainWindow(QMainWindow):
         if self.export_controller is None:
             self._initialize_export_controller()
         return self.export_controller
+    
+    def enable_realtime_preview(self, enabled: bool = True) -> None:
+        """
+        リアルタイムプレビューの有効/無効を設定
+        
+        Args:
+            enabled: リアルタイムプレビューを有効にするか
+        """
+        self.preview_enabled = enabled
+        if enabled:
+            self.set_status_message("リアルタイムプレビューが有効になりました", 2000)
+        else:
+            self.set_status_message("リアルタイムプレビューが無効になりました", 2000)
+    
+    def start_preview_calculation(self, calculation_func, parameters) -> None:
+        """
+        プレビュー用の低解像度計算を開始
+        
+        Args:
+            calculation_func: 計算関数
+            parameters: 計算パラメータ
+        """
+        if not self.preview_enabled or self.background_service.is_calculating():
+            return
+        
+        # プレビュー用パラメータを作成
+        preview_params = self.responsive_ui_manager.create_preview_parameters(parameters)
+        
+        # プレビュー計算を開始（プログレスダイアログは表示しない）
+        self.background_service.start_calculation(
+            calculation_func, preview_params, show_progress=False, parent_widget=self
+        )
+        
+        self.set_status_message("プレビュー計算中...", 1000)
+    
+    def schedule_preview_update(self, calculation_func, parameters) -> None:
+        """
+        プレビュー更新をスケジュール（遅延実行）
+        
+        Args:
+            calculation_func: 計算関数
+            parameters: 計算パラメータ
+        """
+        import time
+        self.last_parameter_change_time = time.time()
+        
+        # 既存のタイマーをリセット
+        self.progressive_timer.stop()
+        
+        # 遅延後にプレビューを開始
+        self.progressive_timer.timeout.disconnect()
+        self.progressive_timer.timeout.connect(
+            lambda: self._delayed_preview_start(calculation_func, parameters)
+        )
+        self.progressive_timer.start(self.preview_delay_ms)
+    
+    def _delayed_preview_start(self, calculation_func, parameters) -> None:
+        """遅延後のプレビュー開始処理"""
+        import time
+        
+        # パラメータ変更から十分時間が経過している場合のみ実行
+        if time.time() - self.last_parameter_change_time >= (self.preview_delay_ms / 1000.0):
+            self.start_preview_calculation(calculation_func, parameters)
+    
+    def _start_progressive_rendering(self) -> None:
+        """プログレッシブレンダリングを開始"""
+        # この関数は外部から設定される計算関数とパラメータで呼び出される
+        # 実際の実装は統合時に完成される
+        pass
+    
+    def start_progressive_calculation(self, calculation_func, parameters, stages: int = 4) -> None:
+        """
+        プログレッシブレンダリング計算を開始
+        
+        Args:
+            calculation_func: 計算関数
+            parameters: 計算パラメータ
+            stages: プログレッシブレンダリングのステージ数
+        """
+        if self.background_service.is_calculating():
+            return
+        
+        self.progressive_stages = stages
+        self.progressive_current_stage = 0
+        self.progressive_calculation_func = calculation_func
+        self.progressive_original_params = parameters
+        
+        # 最初のステージを開始
+        self._execute_progressive_stage()
+    
+    def _execute_progressive_stage(self) -> None:
+        """プログレッシブレンダリングの現在ステージを実行"""
+        if self.progressive_current_stage >= self.progressive_stages:
+            return
+        
+        # 現在ステージ用のパラメータを作成
+        stage_params = self.responsive_ui_manager.create_progressive_parameters(
+            self.progressive_original_params,
+            self.progressive_current_stage,
+            self.progressive_stages
+        )
+        
+        # ステージ計算を開始
+        success = self.background_service.start_calculation(
+            self.progressive_calculation_func,
+            stage_params,
+            show_progress=(self.progressive_current_stage == self.progressive_stages - 1),
+            parent_widget=self
+        )
+        
+        if success:
+            stage_info = f"プログレッシブレンダリング ステージ {self.progressive_current_stage + 1}/{self.progressive_stages}"
+            self.set_status_message(stage_info, 2000)
+    
+    def _on_progressive_stage_completed(self, result) -> None:
+        """プログレッシブレンダリングのステージ完了処理"""
+        # 結果を表示（フラクタルウィジェットに送信）
+        # この部分は統合時に実装
+        
+        # 次のステージに進む
+        self.progressive_current_stage += 1
+        
+        if self.progressive_current_stage < self.progressive_stages:
+            # 次のステージを実行
+            QTimer.singleShot(100, self._execute_progressive_stage)
+        else:
+            # 全ステージ完了
+            self.set_status_message("プログレッシブレンダリング完了", 3000)
+    
+    def set_preview_delay(self, delay_ms: int) -> None:
+        """
+        プレビュー開始遅延時間を設定
+        
+        Args:
+            delay_ms: 遅延時間（ミリ秒）
+        """
+        self.preview_delay_ms = max(100, delay_ms)  # 最小100ms
+    
+    def get_ui_responsiveness_info(self) -> dict:
+        """UI応答性情報を取得"""
+        responsiveness = self.responsive_ui_manager.monitor_ui_responsiveness()
+        calculation_stats = self.get_calculation_statistics()
+        
+        return {
+            'ui_responsiveness': responsiveness,
+            'calculation_status': calculation_stats,
+            'preview_enabled': self.preview_enabled,
+            'preview_delay_ms': self.preview_delay_ms,
+            'is_calculating': self.is_calculating()
+        }
+    
+    def optimize_ui_performance(self) -> None:
+        """UI パフォーマンスを最適化"""
+        # システムパフォーマンスに基づいて設定を調整
+        self.responsive_ui_manager.optimize_for_system_performance()
+        
+        # 応答性情報を取得
+        responsiveness = self.responsive_ui_manager.monitor_ui_responsiveness()
+        
+        # パフォーマンスに基づいてプレビュー設定を調整
+        if responsiveness['responsiveness'] == 'poor':
+            self.set_preview_delay(1000)  # 遅延を増加
+            self.responsive_ui_manager.enable_preview_mode(True, 0.2)  # より小さなプレビュー
+        elif responsiveness['responsiveness'] == 'acceptable':
+            self.set_preview_delay(750)
+            self.responsive_ui_manager.enable_preview_mode(True, 0.25)
+        else:
+            self.set_preview_delay(500)  # デフォルト
+            self.responsive_ui_manager.enable_preview_mode(True, 0.3)
+        
+        performance_msg = f"UI最適化完了 (応答性: {responsiveness['responsiveness']})"
+        self.set_status_message(performance_msg, 3000)
