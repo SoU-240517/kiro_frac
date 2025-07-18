@@ -1383,3 +1383,13 @@ ValueError: エラー
 2025-07-18 15:03:05 - fractal_editor.responsive_ui_manager - INFO - optimize_for_system_performance:690 - UI最適化完了: 応答性=excellent, 応答時間=0.0ms
 2025-07-18 15:03:26 - fractal_editor.error_handling - INFO - initialize:43 - Initializing Export Controller...
 2025-07-18 15:03:26 - fractal_editor.error_handling - INFO - initialize:50 - Export Controller initialized successfully
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - _setup_logging:107 - エラーハンドリングサービスが初期化されました
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - initialize:126 - Initializing Fractal Editor...
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - _validate_core_interfaces:162 - Core interfaces validated successfully
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - _setup_default_settings:167 - Default settings configured:
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - _setup_default_settings:168 -   Max iterations: 1000
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - _setup_default_settings:170 -   Image size: (800, 600)
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - _setup_default_settings:172 -   Thread count: 4
+2025-07-18 15:12:15 - fractal_editor.error_handling - INFO - initialize:135 - Fractal Editor initialized successfully
+2025-07-18 15:12:15 - fractal_editor.responsive_ui_manager - INFO - enable_preview_mode:475 - プレビューモード: 有効, スケール: 0.3
+2025-07-18 15:12:15 - fractal_editor.responsive_ui_manager - INFO - optimize_for_system_performance:690 - UI最適化完了: 応答性=excellent, 応答時間=1.0ms
