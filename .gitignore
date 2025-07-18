@@ -5,10 +5,11 @@
 .pytest_cache/
 
 # 仮想環境
-.venv_kiro/
+venv/
 
 # Python
 __pycache__/
+fractal_editor/__pycache__/
 
 # VSCode
 .vscode/

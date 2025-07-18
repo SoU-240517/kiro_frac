@@ -1352,3 +1352,33 @@ Traceback (most recent call last):
   File "C:\TAKAGI\MyCode\kiro_frac\test_error_context.py", line 145, in failure_function
     raise ValueError("エラー")
 ValueError: エラー
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 126, "message": "Initializing Fractal Editor..."}
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_validate_core_interfaces", "line": 162, "message": "Core interfaces validated successfully"}
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 167, "message": "Default settings configured:"}
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 168, "message": "  Max iterations: 1000"}
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 170, "message": "  Image size: (800, 600)"}
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 172, "message": "  Thread count: 4"}
+{"timestamp": "2025-07-18 15:00:06", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 135, "message": "Fractal Editor initialized successfully"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 126, "message": "Initializing Fractal Editor..."}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_validate_core_interfaces", "line": 162, "message": "Core interfaces validated successfully"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 167, "message": "Default settings configured:"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 168, "message": "  Max iterations: 1000"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 170, "message": "  Image size: (800, 600)"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 172, "message": "  Thread count: 4"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 135, "message": "Fractal Editor initialized successfully"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "enable_preview_mode", "line": 475, "message": "プレビューモード: 有効, スケール: 0.3"}
+{"timestamp": "2025-07-18 15:02:03", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "optimize_for_system_performance", "line": 690, "message": "UI最適化完了: 応答性=excellent, 応答時間=0.0ms"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 126, "message": "Initializing Fractal Editor..."}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_validate_core_interfaces", "line": 162, "message": "Core interfaces validated successfully"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 167, "message": "Default settings configured:"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 168, "message": "  Max iterations: 1000"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 170, "message": "  Image size: (800, 600)"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 172, "message": "  Thread count: 4"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 135, "message": "Fractal Editor initialized successfully"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "enable_preview_mode", "line": 475, "message": "プレビューモード: 有効, スケール: 0.3"}
+{"timestamp": "2025-07-18 15:03:05", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "optimize_for_system_performance", "line": 690, "message": "UI最適化完了: 応答性=excellent, 応答時間=0.0ms"}
+{"timestamp": "2025-07-18 15:03:26", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 43, "message": "Initializing Export Controller..."}
+{"timestamp": "2025-07-18 15:03:26", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 50, "message": "Export Controller initialized successfully"}
