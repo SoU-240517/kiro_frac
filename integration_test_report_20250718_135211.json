@@ -1,0 +1,46 @@
+{
+  "test_run_info": {
+    "start_time": "2025-07-18T13:52:11.564076",
+    "end_time": "2025-07-18T13:57:36.667608",
+    "duration_seconds": 325.103532,
+    "overall_success": false
+  },
+  "system_info": {
+    "platform": "Windows-11-10.0.26100-SP0",
+    "python_version": "3.12.8",
+    "architecture": [
+      "64bit",
+      "WindowsPE"
+    ],
+    "processor": "Intel64 Family 6 Model 151 Stepping 5, GenuineIntel",
+    "timestamp": "2025-07-18T13:52:11.634366"
+  },
+  "dependencies": {
+    "numpy": "2.2.2",
+    "PyQt6": "インストール済み",
+    "Pillow": "未インストール",
+    "psutil": "7.0.0"
+  },
+  "test_results": {
+    "基本統合テスト": {
+      "success": false,
+      "timestamp": "2025-07-18T13:52:32.702221",
+      "error": null
+    },
+    "UI応答性テスト": {
+      "success": false,
+      "timestamp": "2025-07-18T13:53:23.430706",
+      "error": null
+    },
+    "パフォーマンステスト": {
+      "success": false,
+      "timestamp": "2025-07-18T13:57:36.114683",
+      "error": null
+    },
+    "エラーハンドリングテスト": {
+      "success": true,
+      "timestamp": "2025-07-18T13:57:36.667608",
+      "error": null
+    }
+  }
+}

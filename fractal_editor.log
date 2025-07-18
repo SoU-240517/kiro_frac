@@ -1,0 +1,112 @@
+2025-07-17 15:14:35,025 - fractal_editor.services.error_handling - ERROR - Generic error in test context: Test error
+2025-07-17 15:14:35,025 - fractal_editor.services.error_handling - ERROR - Formula error: Test formula error
+2025-07-17 15:26:50,616 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:26:50,617 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:26:50,617 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:26:50,617 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:26:50,617 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:26:50,617 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:26:50,617 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:27:47,487 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:27:47,487 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:27:47,487 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:27:47,487 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:27:47,488 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:27:47,488 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:27:47,488 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:27:47,488 - fractal_editor.services.error_handling - INFO - Initializing Fractal Controller...
+2025-07-17 15:27:47,489 - fractal_editor.services.error_handling - INFO - Fractal Controller initialized successfully
+2025-07-17 15:27:47,489 - fractal_editor.services.error_handling - INFO - Initializing UI Controller...
+2025-07-17 15:27:47,489 - fractal_editor.services.error_handling - INFO - UI Controller initialized successfully
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:29:00,613 - fractal_editor.services.error_handling - INFO - Initializing Fractal Controller...
+2025-07-17 15:29:00,614 - fractal_editor.services.error_handling - INFO - Fractal Controller initialized successfully
+2025-07-17 15:29:00,614 - fractal_editor.services.error_handling - INFO - Initializing UI Controller...
+2025-07-17 15:29:00,614 - fractal_editor.services.error_handling - INFO - UI Controller initialized successfully
+2025-07-17 15:32:43,932 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:32:43,933 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:32:43,933 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:32:43,933 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:32:43,933 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:32:43,933 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:32:43,934 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:35:56,102 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:35:56,103 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:35:56,103 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:35:56,103 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:35:56,103 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:35:56,103 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:35:56,103 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:37:34,207 - fractal_editor.services.error_handling - INFO - Initializing Fractal Controller...
+2025-07-17 15:37:34,208 - fractal_editor.services.error_handling - INFO - Fractal Controller initialized successfully
+2025-07-17 15:37:34,208 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:37:34,208 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:37:34,208 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:37:34,208 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:37:34,209 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:37:34,209 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:37:34,209 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:37:34,209 - fractal_editor.services.error_handling - INFO - Initializing UI Controller...
+2025-07-17 15:37:34,210 - fractal_editor.services.error_handling - INFO - UI Controller initialized successfully
+2025-07-17 15:39:32,791 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:39:32,791 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:39:32,791 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:39:32,791 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:39:32,791 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:39:32,792 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:39:32,792 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:41:12,521 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:41:12,521 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:41:12,521 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:41:12,521 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:41:12,521 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:41:12,521 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:41:12,521 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:41:12,522 - fractal_editor.services.error_handling - INFO - Initializing Fractal Controller...
+2025-07-17 15:41:12,522 - fractal_editor.services.error_handling - INFO - Fractal Controller initialized successfully
+2025-07-17 15:41:12,522 - fractal_editor.services.error_handling - INFO - Initializing UI Controller...
+2025-07-17 15:41:12,523 - fractal_editor.services.error_handling - INFO - UI Controller initialized successfully
+2025-07-17 15:41:12,523 - fractal_editor.services.error_handling - ERROR - Fractal calculation failed at stage: test_stage, Error: Test error
+2025-07-17 15:41:12,523 - fractal_editor.services.error_handling - ERROR - Formula error: Test formula error
+2025-07-17 15:41:12,524 - fractal_editor.services.error_handling - ERROR - General error in test_context: Test general error
+2025-07-17 15:43:03,605 - fractal_editor.services.error_handling - INFO - Initializing Fractal Editor...
+2025-07-17 15:43:03,605 - fractal_editor.services.error_handling - INFO - Core interfaces validated successfully
+2025-07-17 15:43:03,606 - fractal_editor.services.error_handling - INFO - Default settings configured:
+2025-07-17 15:43:03,606 - fractal_editor.services.error_handling - INFO -   Max iterations: 1000
+2025-07-17 15:43:03,606 - fractal_editor.services.error_handling - INFO -   Image size: (800, 600)
+2025-07-17 15:43:03,606 - fractal_editor.services.error_handling - INFO -   Thread count: 12
+2025-07-17 15:43:03,606 - fractal_editor.services.error_handling - INFO - Fractal Editor initialized successfully
+2025-07-17 15:43:03,607 - fractal_editor.services.error_handling - INFO - Initializing Fractal Controller...
+2025-07-17 15:43:03,607 - fractal_editor.services.error_handling - INFO - Fractal Controller initialized successfully
+2025-07-17 15:43:03,608 - fractal_editor.services.error_handling - ERROR - General error in demonstration: Demo error for testing
+2025-07-18 09:55:22,033 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,034 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:22,034 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (100, 100) with 100 max iterations
+2025-07-18 09:55:22,040 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,040 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:22,044 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,044 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:22,045 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (100, 100) with 100 max iterations
+2025-07-18 09:55:22,117 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpyliaoocp\export_0.png
+2025-07-18 09:55:22,161 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpyliaoocp\export_1.png
+2025-07-18 09:55:22,205 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpyliaoocp\export_2.png
+2025-07-18 09:55:22,206 - fractal_editor.services.error_handling - INFO - Export history cleared
+2025-07-18 09:55:22,210 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,210 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:25,692 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:25,692 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:25,692 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (100, 100) with 100 max iterations
+2025-07-18 09:55:25,734 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpaipnnxnf\quick_export.png
+2025-07-18 09:55:25,791 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:25,791 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:57:19,676 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:57:19,676 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:57:19,676 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (150, 150) with 80 max iterations
+2025-07-18 09:57:19,741 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmp3014s9hb\quick_export.png
+2025-07-18 09:57:20,300 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmp3014s9hb\quick_export_hires.png
