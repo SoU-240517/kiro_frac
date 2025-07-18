@@ -3,5 +3,6 @@
 from .main_window import MainWindow
 from .fractal_widget import FractalWidget
 from .parameter_panel import ParameterPanel
+from .formula_editor import FormulaEditorWidget
 
-__all__ = ['MainWindow', 'FractalWidget', 'ParameterPanel']
+__all__ = ['MainWindow', 'FractalWidget', 'ParameterPanel', 'FormulaEditorWidget']

@@ -6,11 +6,13 @@ PyQt6を使用したフラクタルエディタのメインウィンドウ
 from PyQt6.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
     QMenuBar, QToolBar, QStatusBar, QDockWidget,
-    QAction, QLabel, QProgressBar, QSplitter
+    QLabel, QProgressBar, QSplitter
 )
 from PyQt6.QtCore import Qt, pyqtSignal
-from PyQt6.QtGui import QIcon, QKeySequence
+from PyQt6.QtGui import QIcon, QKeySequence, QAction
 from typing import Optional
+
+from .formula_editor import FormulaEditorWidget
 
 
 class MainWindow(QMainWindow):
@@ -27,6 +29,7 @@ class MainWindow(QMainWindow):
     fractal_type_changed = pyqtSignal(str)
     export_requested = pyqtSignal()
     settings_requested = pyqtSignal()
+    formula_applied = pyqtSignal(str)  # 数式が適用されたときのシグナル
     
     def __init__(self, parent: Optional[QWidget] = None):
         super().__init__(parent)
@@ -164,6 +167,14 @@ class MainWindow(QMainWindow):
         # ヘルプメニュー
         help_menu = menubar.addMenu("ヘルプ(&H)")
         
+        # 式エディタヘルプ
+        formula_help_action = QAction("式エディタヘルプ(&F)", self)
+        formula_help_action.setStatusTip("式エディタの使い方を表示")
+        formula_help_action.triggered.connect(self._show_formula_help)
+        help_menu.addAction(formula_help_action)
+        
+        help_menu.addSeparator()
+        
         # バージョン情報
         about_action = QAction("バージョン情報(&A)", self)
         about_action.setStatusTip("アプリケーションについて")
@@ -270,15 +281,14 @@ class MainWindow(QMainWindow):
             Qt.DockWidgetArea.TopDockWidgetArea
         )
         
-        # 式エディタ用のプレースホルダー
-        formula_placeholder = QWidget()
-        formula_placeholder.setMinimumHeight(200)
-        formula_layout = QVBoxLayout(formula_placeholder)
-        formula_label = QLabel("数式エディタ")
-        formula_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        formula_layout.addWidget(formula_label)
+        # 式エディタウィジェット
+        self.formula_editor = FormulaEditorWidget()
+        self.formula_editor.setMinimumHeight(200)
         
-        self.formula_dock.setWidget(formula_placeholder)
+        # 式エディタのシグナルを接続
+        self.formula_editor.formula_applied.connect(self.formula_applied.emit)
+        
+        self.formula_dock.setWidget(self.formula_editor)
         self.addDockWidget(Qt.DockWidgetArea.BottomDockWidgetArea, self.formula_dock)
         
         # 初期状態では式エディタを非表示
@@ -343,3 +353,11 @@ class MainWindow(QMainWindow):
     def show_formula_editor(self, show: bool = True) -> None:
         """式エディタパネルの表示/非表示を切り替え"""
         self.formula_dock.setVisible(show)
+    
+    def _show_formula_help(self) -> None:
+        """式エディタのヘルプを表示"""
+        self.formula_editor.show_help()
+    
+    def get_formula_editor(self) -> FormulaEditorWidget:
+        """式エディタウィジェットを取得"""
+        return self.formula_editor
