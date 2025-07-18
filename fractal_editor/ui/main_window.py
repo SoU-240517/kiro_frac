@@ -36,6 +36,9 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("フラクタルエディタ")
         self.setMinimumSize(1024, 768)
         
+        # エクスポートコントローラーは遅延初期化
+        self.export_controller = None
+        
         # 中央ウィジェットとレイアウトの設定
         self._setup_central_widget()
         
@@ -53,6 +56,9 @@ class MainWindow(QMainWindow):
         
         # ウィンドウの初期状態設定
         self._setup_window_state()
+        
+        # シグナル接続
+        self._connect_signals()
     
     def _setup_central_widget(self) -> None:
         """中央ウィジェットとメインレイアウトを設定"""
@@ -361,3 +367,41 @@ class MainWindow(QMainWindow):
     def get_formula_editor(self) -> FormulaEditorWidget:
         """式エディタウィジェットを取得"""
         return self.formula_editor
+    
+    def _connect_signals(self) -> None:
+        """シグナルを接続"""
+        # エクスポート要求シグナルをエクスポートコントローラーに接続
+        self.export_requested.connect(self._handle_export_request)
+    
+    def _handle_export_request(self) -> None:
+        """エクスポート要求を処理"""
+        try:
+            # エクスポートコントローラーを遅延初期化
+            if self.export_controller is None:
+                self._initialize_export_controller()
+            
+            success = self.export_controller.show_export_dialog()
+            if success:
+                self.set_status_message("画像エクスポートが完了しました", 3000)
+            else:
+                self.set_status_message("エクスポートがキャンセルされました", 2000)
+        except Exception as e:
+            self.set_status_message(f"エクスポートエラー: {str(e)}", 5000)
+    
+    def _initialize_export_controller(self) -> None:
+        """エクスポートコントローラーを初期化"""
+        from ..controllers.export_controller import ExportController
+        self.export_controller = ExportController(self)
+        self.export_controller.initialize()
+    
+    def set_fractal_data_for_export(self, fractal_result, max_iterations: int) -> None:
+        """エクスポート用のフラクタルデータを設定"""
+        if self.export_controller is None:
+            self._initialize_export_controller()
+        self.export_controller.set_fractal_data(fractal_result, max_iterations)
+    
+    def get_export_controller(self):
+        """エクスポートコントローラーを取得"""
+        if self.export_controller is None:
+            self._initialize_export_controller()
+        return self.export_controller

@@ -85,3 +85,28 @@
 2025-07-17 15:43:03,607 - fractal_editor.services.error_handling - INFO - Initializing Fractal Controller...
 2025-07-17 15:43:03,607 - fractal_editor.services.error_handling - INFO - Fractal Controller initialized successfully
 2025-07-17 15:43:03,608 - fractal_editor.services.error_handling - ERROR - General error in demonstration: Demo error for testing
+2025-07-18 09:55:22,033 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,034 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:22,034 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (100, 100) with 100 max iterations
+2025-07-18 09:55:22,040 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,040 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:22,044 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,044 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:22,045 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (100, 100) with 100 max iterations
+2025-07-18 09:55:22,117 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpyliaoocp\export_0.png
+2025-07-18 09:55:22,161 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpyliaoocp\export_1.png
+2025-07-18 09:55:22,205 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpyliaoocp\export_2.png
+2025-07-18 09:55:22,206 - fractal_editor.services.error_handling - INFO - Export history cleared
+2025-07-18 09:55:22,210 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:22,210 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:25,692 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:25,692 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:55:25,692 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (100, 100) with 100 max iterations
+2025-07-18 09:55:25,734 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmpaipnnxnf\quick_export.png
+2025-07-18 09:55:25,791 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:55:25,791 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:57:19,676 - fractal_editor.services.error_handling - INFO - Initializing Export Controller...
+2025-07-18 09:57:19,676 - fractal_editor.services.error_handling - INFO - Export Controller initialized successfully
+2025-07-18 09:57:19,676 - fractal_editor.services.error_handling - INFO - Fractal data set for export: (150, 150) with 80 max iterations
+2025-07-18 09:57:19,741 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmp3014s9hb\quick_export.png
+2025-07-18 09:57:20,300 - fractal_editor.services.error_handling - INFO - Quick export completed: C:\Users\TAKAGI\AppData\Local\Temp\tmp3014s9hb\quick_export_hires.png
