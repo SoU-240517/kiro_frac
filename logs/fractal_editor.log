@@ -1600,3 +1600,39 @@ ValueError: エラー
 2025-07-18 15:50:50 - fractal_editor.error_handling - INFO - initialize:135 - Fractal Editor initialized successfully
 2025-07-18 15:50:50 - fractal_editor.responsive_ui_manager - INFO - enable_preview_mode:475 - プレビューモード: 有効, スケール: 0.3
 2025-07-18 15:50:50 - fractal_editor.responsive_ui_manager - INFO - optimize_for_system_performance:690 - UI最適化完了: 応答性=excellent, 応答時間=0.0ms
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - _setup_logging:107 - エラーハンドリングサービスが初期化されました
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - initialize:126 - Initializing Fractal Editor...
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - _validate_core_interfaces:162 - Core interfaces validated successfully
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - _setup_default_settings:167 - Default settings configured:
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - _setup_default_settings:168 -   Max iterations: 1000
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - _setup_default_settings:170 -   Image size: (800, 600)
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - _setup_default_settings:172 -   Thread count: 4
+2025-07-19 07:51:55 - fractal_editor.error_handling - INFO - initialize:135 - Fractal Editor initialized successfully
+2025-07-19 07:51:55 - fractal_editor.responsive_ui_manager - INFO - enable_preview_mode:475 - プレビューモード: 有効, スケール: 0.3
+2025-07-19 07:51:55 - fractal_editor.responsive_ui_manager - INFO - optimize_for_system_performance:690 - UI最適化完了: 応答性=excellent, 応答時間=0.0ms
+2025-07-19 07:52:01 - fractal_editor.memory_manager - INFO - __init__:108 - メモリマネージャーが初期化されました
+2025-07-19 07:52:01 - fractal_editor.memory_manager - DEBUG - estimate_fractal_memory_usage:188 - メモリ使用量推定: 936x702, 基本=2.5MB, 総計=4.5MB
+2025-07-19 07:52:01 - fractal_editor.memory_manager - DEBUG - memory_context:387 - メモリコンテキスト開始: Mandelbrot calculation
+2025-07-19 07:52:01 - fractal_editor.memory_manager - DEBUG - allocate_array:252 - 配列割り当て成功: array_0, 2.5MB, Mandelbrot result 936x702
+2025-07-19 07:52:02 - fractal_editor.memory_manager - INFO - force_garbage_collection:281 - 強制ガベージコレクション開始
+2025-07-19 07:52:02 - fractal_editor.memory_manager - INFO - force_garbage_collection:300 - ガベージコレクション完了: 0オブジェクト回収
+2025-07-19 07:52:02 - fractal_editor.memory_manager - DEBUG - memory_context:401 - メモリコンテキスト終了: Mandelbrot calculation, メモリ変化=2.6MB, 割り当て変化=1
+2025-07-19 07:52:02 - fractal_editor.memory_manager - DEBUG - callback:272 - 配列解放: array_0, 2.5MB
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - _setup_logging:107 - エラーハンドリングサービスが初期化されました
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - initialize:126 - Initializing Fractal Editor...
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - _validate_core_interfaces:162 - Core interfaces validated successfully
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - _setup_default_settings:167 - Default settings configured:
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - _setup_default_settings:168 -   Max iterations: 1000
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - _setup_default_settings:170 -   Image size: (800, 600)
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - _setup_default_settings:172 -   Thread count: 4
+2025-07-19 15:21:57 - fractal_editor.error_handling - INFO - initialize:135 - Fractal Editor initialized successfully
+2025-07-19 15:21:58 - fractal_editor.responsive_ui_manager - INFO - enable_preview_mode:475 - プレビューモード: 有効, スケール: 0.3
+2025-07-19 15:21:58 - fractal_editor.responsive_ui_manager - INFO - optimize_for_system_performance:690 - UI最適化完了: 応答性=excellent, 応答時間=0.0ms
+2025-07-19 15:22:11 - fractal_editor.memory_manager - INFO - __init__:108 - メモリマネージャーが初期化されました
+2025-07-19 15:22:11 - fractal_editor.memory_manager - DEBUG - estimate_fractal_memory_usage:188 - メモリ使用量推定: 936x702, 基本=2.5MB, 総計=4.5MB
+2025-07-19 15:22:11 - fractal_editor.memory_manager - DEBUG - memory_context:387 - メモリコンテキスト開始: Mandelbrot calculation
+2025-07-19 15:22:11 - fractal_editor.memory_manager - DEBUG - allocate_array:252 - 配列割り当て成功: array_0, 2.5MB, Mandelbrot result 936x702
+2025-07-19 15:22:12 - fractal_editor.memory_manager - INFO - force_garbage_collection:281 - 強制ガベージコレクション開始
+2025-07-19 15:22:12 - fractal_editor.memory_manager - INFO - force_garbage_collection:300 - ガベージコレクション完了: 0オブジェクト回収
+2025-07-19 15:22:12 - fractal_editor.memory_manager - DEBUG - memory_context:401 - メモリコンテキスト終了: Mandelbrot calculation, メモリ変化=2.6MB, 割り当て変化=1
+2025-07-19 15:22:12 - fractal_editor.memory_manager - DEBUG - callback:272 - 配列解放: array_0, 2.5MB

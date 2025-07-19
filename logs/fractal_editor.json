@@ -1549,3 +1549,29 @@ ValueError: エラー
 {"timestamp": "2025-07-18 15:50:50", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 135, "message": "Fractal Editor initialized successfully"}
 {"timestamp": "2025-07-18 15:50:50", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "enable_preview_mode", "line": 475, "message": "プレビューモード: 有効, スケール: 0.3"}
 {"timestamp": "2025-07-18 15:50:50", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "optimize_for_system_performance", "line": 690, "message": "UI最適化完了: 応答性=excellent, 応答時間=0.0ms"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 126, "message": "Initializing Fractal Editor..."}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_validate_core_interfaces", "line": 162, "message": "Core interfaces validated successfully"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 167, "message": "Default settings configured:"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 168, "message": "  Max iterations: 1000"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 170, "message": "  Image size: (800, 600)"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 172, "message": "  Thread count: 4"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 135, "message": "Fractal Editor initialized successfully"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "enable_preview_mode", "line": 475, "message": "プレビューモード: 有効, スケール: 0.3"}
+{"timestamp": "2025-07-19 07:51:55", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "optimize_for_system_performance", "line": 690, "message": "UI最適化完了: 応答性=excellent, 応答時間=0.0ms"}
+{"timestamp": "2025-07-19 07:52:01", "logger": "fractal_editor.memory_manager", "level": "INFO", "function": "__init__", "line": 108, "message": "メモリマネージャーが初期化されました"}
+{"timestamp": "2025-07-19 07:52:02", "logger": "fractal_editor.memory_manager", "level": "INFO", "function": "force_garbage_collection", "line": 281, "message": "強制ガベージコレクション開始"}
+{"timestamp": "2025-07-19 07:52:02", "logger": "fractal_editor.memory_manager", "level": "INFO", "function": "force_garbage_collection", "line": 300, "message": "ガベージコレクション完了: 0オブジェクト回収"}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_logging", "line": 107, "message": "エラーハンドリングサービスが初期化されました"}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 126, "message": "Initializing Fractal Editor..."}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_validate_core_interfaces", "line": 162, "message": "Core interfaces validated successfully"}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 167, "message": "Default settings configured:"}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 168, "message": "  Max iterations: 1000"}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 170, "message": "  Image size: (800, 600)"}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "_setup_default_settings", "line": 172, "message": "  Thread count: 4"}
+{"timestamp": "2025-07-19 15:21:57", "logger": "fractal_editor.error_handling", "level": "INFO", "function": "initialize", "line": 135, "message": "Fractal Editor initialized successfully"}
+{"timestamp": "2025-07-19 15:21:58", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "enable_preview_mode", "line": 475, "message": "プレビューモード: 有効, スケール: 0.3"}
+{"timestamp": "2025-07-19 15:21:58", "logger": "fractal_editor.responsive_ui_manager", "level": "INFO", "function": "optimize_for_system_performance", "line": 690, "message": "UI最適化完了: 応答性=excellent, 応答時間=0.0ms"}
+{"timestamp": "2025-07-19 15:22:11", "logger": "fractal_editor.memory_manager", "level": "INFO", "function": "__init__", "line": 108, "message": "メモリマネージャーが初期化されました"}
+{"timestamp": "2025-07-19 15:22:12", "logger": "fractal_editor.memory_manager", "level": "INFO", "function": "force_garbage_collection", "line": 281, "message": "強制ガベージコレクション開始"}
+{"timestamp": "2025-07-19 15:22:12", "logger": "fractal_editor.memory_manager", "level": "INFO", "function": "force_garbage_collection", "line": 300, "message": "ガベージコレクション完了: 0オブジェクト回収"}
