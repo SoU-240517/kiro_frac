@@ -17,6 +17,11 @@ from .project_manager import (
     ProjectManager, ProjectFileError, create_default_project
 )
 
+from .coordinate_transform import (
+    ComplexCoordinateTransform, CoordinateTransformError,
+    InvalidCoordinateError, InvalidRegionError
+)
+
 __all__ = [
     # Color system
     'ColorStop', 'ColorPalette', 'InterpolationMode', 'ColorMapper',
@@ -27,5 +32,9 @@ __all__ = [
     'ImageExporter', 'RenderingEngine',
     
     # Project management
-    'ProjectManager', 'ProjectFileError', 'create_default_project'
+    'ProjectManager', 'ProjectFileError', 'create_default_project',
+    
+    # Coordinate transformation
+    'ComplexCoordinateTransform', 'CoordinateTransformError',
+    'InvalidCoordinateError', 'InvalidRegionError'
 ]
